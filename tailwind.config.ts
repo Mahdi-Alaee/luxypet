@@ -9,8 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        mainPurple: "#BA68C8",
+        darkestPurple: "#4A148C",
+      },
+      fontFamily: {
+        sans: ["vazir", "sans-serif"],
+        vazirBold: ["vazir-bold", "sans-serif"],
+        vazirLight: ["vazir-light", "sans-serif"],
+        vazirMedium: ["vazir-medium", "sans-serif"],
+        vazirThin: ["vazir-thin", "sans-serif"],
       },
     },
   },

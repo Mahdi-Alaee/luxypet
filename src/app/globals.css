@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/** start Menu Button */
+.btn-menu {
+    width: 50px;
+    height: 50px;
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+.btn-menu span {
+    position: absolute;
+    top: 1.6em;
+    left: 0.5em;
+    background-color: white;
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -webkit-transform: rotate(0deg);
+    /* Opera, Chrome, and Safari */
+}
+.btn-menu span:before {
+    position: absolute;
+    top: -0.6em;
+    left: 0;
+    height: 3.5px !important;
+    content: ' ';
+    background-color: white;
+}
+.btn-menu span:after {
+    position: absolute;
+    top: 0.6em;
+    left: 0;
+    content: ' ';
+    background-color: white;
+}
+.close span {
+    position: absolute;
+    left: -5.5em;
+    top: 1em;
+    background: none;
+}
+.close span:after {
+    position: absolute;
+    left: 6em;
+    top: 0.6em;
+    background-color: white;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.close span:before {
+    display: block;
+    position: absolute;
+    background-color: white;
+    top: 0.6em;
+    left: 6em;
+    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+.btn-menu span, .btn-menu span:before, .btn-menu span:after, .close span, .close span:before, .close span:after {
+    width: 35px;
+    height: 3px;
+    border-radius: 0.2em;
+    -moz-transition: all .5s cubic-bezier(0.5, -0.6, 0.19, 1);
+    -o-transition: all .5s cubic-bezier(0.5, -0.6, 0.19, 1);
+    -webkit-transition: all .5s cubic-bezier(0.5, -0.6, 0.19, 1);
+    transition: all .5s cubic-bezier(0.5, -0.6, 0.19, 1);
+}
+/** finish Menu Button */
