@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    direction: rtl;
+}
+
+/** start fonts */
+
+@font-face {
+    font-family: vazir;
+    src:
+        url(/fonts/Vazir.ttf) format(truetype),
+        url(/fonts/Vazir.eot) format(opentype),
+        url(/fonts/Vazir.woff) format(woff);
+}
+@font-face {
+    font-family: vazir-bold;
+    src:
+        url(/fonts/Vazir-Bold.ttf) format(truetype),
+        url(/fonts/Vazir-Bold.eot) format(opentype),
+        url(/fonts/Vazir-Bold.woff) format(woff);
+}
+@font-face {
+    font-family: vazir-light;
+    src:
+        url(/fonts/Vazir-Light.ttf) format(truetype),
+        url(/fonts/Vazir-Light.eot) format(opentype),
+        url(/fonts/Vazir-Light.woff) format(woff);
+}
+@font-face {
+    font-family: vazir-medium;
+    src:
+        url(/fonts/Vazir-Medium.ttf) format(truetype),
+        url(/fonts/Vazir-Medium.eot) format(opentype),
+        url(/fonts/Vazir-Medium.woff) format(woff);
+}
+@font-face {
+    font-family: vazir-thin;
+    src:
+        url(/fonts/Vazir-Thin.ttf) format(truetype),
+        url(/fonts/Vazir-Thin.eot) format(opentype),
+        url(/fonts/Vazir-Thin.woff) format(woff);
+}
+
+/** finish fonts */
+
 /** start Menu Button */
 .btn-menu {
     width: 50px;
@@ -25,7 +69,7 @@
     position: absolute;
     top: -0.6em;
     left: 0;
-    height: 3.5px !important;
+    /* height: 3.5px !important; */
     content: ' ';
     background-color: white;
 }
@@ -46,6 +90,7 @@
     position: absolute;
     left: 6em;
     top: 0.6em;
+    /* height: 3px !important; */
     background-color: white;
     transform: rotate(45deg);
     -ms-transform: rotate(45deg);

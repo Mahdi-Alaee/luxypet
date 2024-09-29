@@ -12,7 +12,7 @@ interface MenuButtonProps {
       <button
         id="btn-menu-responsive"
         className={`btn-menu dark:bg-darkBrown rounded-lg 
-          ${!isMenuOpen ? "" : "close"}
+          ${!isMenuOpen ? "" : "close fixed z-50 bg-mainPurple"}
            lg:hidden`}
         onClick={() => setIsMenuOpen((prev) => !prev)}
       >
