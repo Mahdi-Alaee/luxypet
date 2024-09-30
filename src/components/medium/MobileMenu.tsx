@@ -15,7 +15,7 @@ interface MobileMenuProps {
 function MobileMenu({ isMenuOpen }: MobileMenuProps) {
   return (
     <nav
-      className={`fixed right-0 top-0 bottom-0 bg-mainPurple duration-200 ${
+      className={`fixed z-10 right-0 top-0 bottom-0 bg-mainPurple duration-200 ${
         isMenuOpen
           ? "left-0 opacity-100 visible"
           : "left-full invisible opacity-0"

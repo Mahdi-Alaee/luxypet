@@ -9,7 +9,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-mainPurple p-4 sticky">
+    <header className="bg-mainPurple p-4 sticky z-50">
       <div className="container mx-auto flex justify-between items-center md:flex-col-reverse md:gap-y-8">
         {/* menu button */}
         <MenuButton isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />

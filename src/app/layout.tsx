@@ -1,4 +1,5 @@
 import Header from "@/components/large/Header";
+import 'swiper/swiper-bundle.css';
 import "./globals.css";
 
 export default function RootLayout({
@@ -8,7 +9,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-bgColor">
         <Header />
         {children}
       </body>

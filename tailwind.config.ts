@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         mainPurple: "#D500F9",
         darkestPurple: "#4A148C",
+        bgColor: '#BDBDBD'
       },
       fontFamily: {
         sans: ["vazir", "sans-serif"],
