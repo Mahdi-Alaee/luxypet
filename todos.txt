@@ -1,0 +1,5 @@
+1. handle login and register
+2. handle User Profile and Admin
+3. Product page
+4. home page
+5. footer
