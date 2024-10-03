@@ -17,16 +17,16 @@ export default function Header() {
         {/* sign buttons */}
         <div className="hidden md:flex gap-x-10">
           <Link
-            className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
+            className="border-4 font-bold border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
           hover:bg-gray-200 hover:text-mainPurple"
-            href="#"
+            href="/login"
           >
             ورود
           </Link>
           <Link
-            className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
+            className="border-4 font-bold border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
           hover:bg-gray-200 hover:text-mainPurple"
-            href="#"
+            href="/register"
           >
             ثبت نام
           </Link>
