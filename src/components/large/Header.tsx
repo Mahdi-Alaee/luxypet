@@ -4,6 +4,7 @@ import Link from "next/link";
 import MenuButton from "../small/MenuButton";
 import { useState } from "react";
 import MobileMenu from "../medium/MobileMenu";
+import Image from "next/image";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,15 +56,16 @@ export default function Header() {
         {/* logo */}
         <Link
           className={` text-3xl md:text-5xl ${
-            isMenuOpen ? "text-mainPurple fixed z-50 left-4 top-6" : "text-white"
+            isMenuOpen ? "text-mainPurple fixed z-50 left-4 top-0" : "text-white"
           }`}
           href="/"
+          onClick={()=> setIsMenuOpen(false)}
         >
-          luxypet
+          <Image className="w-24 md:w-40" width='100' height='100' src="/images/logo.png" alt="" />
         </Link>
       </div>
       {/* mobile menu */}
-      <MobileMenu isMenuOpen={isMenuOpen} />
+      <MobileMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </header>
   );
 }

@@ -9,10 +9,10 @@ import { MdOutlineArticle } from "react-icons/md";
 
 interface MobileMenuProps {
   isMenuOpen: boolean;
-  setIsMenuOpen?: Dispatch<SetStateAction<boolean>>;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-function MobileMenu({ isMenuOpen }: MobileMenuProps) {
+function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
   return (
     <nav
       className={`fixed z-10 right-0 top-0 bottom-0 bg-mainPurple duration-200 ${
@@ -26,27 +26,47 @@ function MobileMenu({ isMenuOpen }: MobileMenuProps) {
       {/* menu items */}
       <ul className="flex flex-col gap-y-6 pt-6 text-center text-gray-100 font-sans text-2xl">
         <li>
-          <Link className="flex justify-center gap-x-1" href="#">
+          <Link
+            className="flex justify-center gap-x-1"
+            href="#"
+            onClick={() => setIsMenuOpen(false)}
+          >
             <TbDog className="text-3xl" /> توله ها
           </Link>
         </li>
         <li>
-          <Link className="flex justify-center gap-x-1" href="#">
+          <Link
+            className="flex justify-center gap-x-1"
+            href="#"
+            onClick={() => setIsMenuOpen(false)}
+          >
             <MdSentimentSatisfiedAlt className="text-3xl" /> رضایت مشتری
           </Link>
         </li>
         <li>
-          <Link className="flex justify-center gap-x-1" href="#">
+          <Link
+            className="flex justify-center gap-x-1"
+            href="#"
+            onClick={() => setIsMenuOpen(false)}
+          >
             <MdOutlineCorporateFare className="text-3xl" /> درباره ما
           </Link>
         </li>
         <li>
-          <Link className="flex justify-center gap-x-1" href="#">
+          <Link
+            className="flex justify-center gap-x-1"
+            href="#"
+            onClick={() => setIsMenuOpen(false)}
+          >
             <MdContacts className="text-3xl" /> ارتباط با ما
           </Link>
         </li>
         <li>
-          <Link className="flex justify-center gap-x-1" href="#">
+          <Link
+            className="flex justify-center gap-x-1"
+            href="#"
+            onClick={() => setIsMenuOpen(false)}
+          >
             <MdOutlineArticle className="text-3xl" /> مقالات
           </Link>
         </li>
@@ -56,14 +76,16 @@ function MobileMenu({ isMenuOpen }: MobileMenuProps) {
         <Link
           className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
           hover:bg-gray-200 hover:text-mainPurple"
-          href="#"
+          href="/login"
+          onClick={() => setIsMenuOpen(false)}
         >
           ورود
         </Link>
         <Link
           className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
           hover:bg-gray-200 hover:text-mainPurple"
-          href="#"
+          href="/register"
+          onClick={() => setIsMenuOpen(false)}
         >
           ثبت نام
         </Link>

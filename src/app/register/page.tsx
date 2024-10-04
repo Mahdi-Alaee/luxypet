@@ -3,10 +3,10 @@
 export default function Register() {
   return (
     <main>
-      <div className="flex flex-col items-center min-h-screen max-w-md px-6 mx-auto justify-center">
+      <div className="flex flex-col mt-20 max-w-md px-6 mx-auto justify-center">
         <img
-          className="w-64 mb-4"
-          src="/assets/images/png/logo.png"
+          className="w-24 mb-2 mx-auto"
+          src="/images/logo.png"
           alt="Delpoosh logo"
         />
         <div
