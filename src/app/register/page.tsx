@@ -5,8 +5,8 @@ export default function Register() {
     <main>
       <div className="flex flex-col mt-20 max-w-md px-6 mx-auto justify-center">
         <img
-          className="w-24 mb-2 mx-auto"
-          src="/images/logo.png"
+          className="w-32 mb-2 mx-auto"
+          src="/images/logo2.png"
           alt="Delpoosh logo"
         />
         <div
