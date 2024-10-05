@@ -1,6 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
+import TextBox from "@/components/small/TextBox";
+import { useState } from "react";
+import { FaVoicemail } from "react-icons/fa";
+
 export default function Register() {
+  const [name, setName] = useState<{
+    value: string;
+    isValid: undefined | boolean;
+  }>({ value: "", isValid: undefined });
+
   return (
     <main>
       <div className="flex flex-col mt-20 max-w-md px-6 mx-auto justify-center">
@@ -27,29 +37,12 @@ export default function Register() {
             </a>
           </div>
           <form className="w-full flex flex-col gap-y-2">
-            <div
-              className="bg-white flex items-center p-3 rounded-xl 
-          justify-between "
-            >
-              <input
-                type="text"
-                className="text-right outline-none w-full font-lg placeholder:text-sm md:placeholder:text-lg md:text-lg"
-                placeholder="نام و نام خوانوادگی"
-                value=""
-              />
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                stroke-width="0"
-                viewBox="0 0 640 512"
-                className="text-gray-400 md:text-2xl"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M496 128a144 144 0 0 0-119.74 224H263.74A144 144 0 1 0 144 416h352a144 144 0 0 0 0-288zM64 272a80 80 0 1 1 80 80 80 80 0 0 1-80-80zm432 80a80 80 0 1 1 80-80 80 80 0 0 1-80 80z"></path>
-              </svg>
-            </div>
+            <TextBox
+              icon={<FaVoicemail className="text-gray-400 md:text-2xl" />}
+              placeholder="نام و نام خوانوادگی"
+              state={name}
+              setState={setName}
+            />
             <div
               className="bg-white flex items-center p-3 rounded-xl 
           justify-between "
