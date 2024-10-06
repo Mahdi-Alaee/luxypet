@@ -1,0 +1,8 @@
+export interface User {
+  name: string;
+  phone: string;
+  email: string;
+  password?: string;
+  phoneVerified?: boolean;
+  emailVerified?: boolean;
+}

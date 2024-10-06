@@ -2,6 +2,7 @@
 "use client";
 
 import TextBox from "@/components/small/TextBox";
+import { register } from "@/lib/auth";
 import {
   fieldCount,
   isEmail,
@@ -11,7 +12,7 @@ import {
   required,
   theSameAs,
 } from "@/validation/inputs/validation-rules";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaPhoneAlt, FaUser } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 
@@ -56,6 +57,19 @@ export default function Register() {
     );
   }, [name, phone, email, password, rePassword]);
 
+  const formSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const body = {
+      name: name.value,
+      phone: phone.value,
+      email: email.value,
+      password: password.value,
+    };
+
+    register(body)
+  };
+
   return (
     <main>
       <div className="flex flex-col mt-10 max-w-md px-6 mx-auto justify-center">
@@ -81,7 +95,7 @@ export default function Register() {
               وارد شوید
             </a>
           </div>
-          <form className="w-full flex flex-col gap-y-2">
+          <form className="w-full flex flex-col gap-y-2" onSubmit={formSubmit}>
             <TextBox
               icon={<FaUser className="text-gray-400 md:text-2xl" />}
               placeholder="نام و نام خوانوادگی"
@@ -151,7 +165,7 @@ export default function Register() {
               type="submit"
               disabled={!isFormValid}
             >
-              ادامه
+              ثبت
             </button>
           </form>
         </div>
