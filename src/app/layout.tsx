@@ -1,4 +1,5 @@
 import Header from "@/components/large/Header";
+import 'react-toastify/dist/ReactToastify.css';
 import 'swiper/swiper-bundle.css';
 import "./globals.css";
 

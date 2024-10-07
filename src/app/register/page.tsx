@@ -15,6 +15,7 @@ import {
 import { FormEvent, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaPhoneAlt, FaUser } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Register() {
   const [name, setName] = useState<{
@@ -60,14 +61,24 @@ export default function Register() {
   const formSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const errorToast = (txt: string) =>
+      toast.info(txt, { position: "top-center", className: "font-sans" });
+
     const body = {
       name: name.value,
       phone: phone.value,
       email: email.value,
       password: password.value,
     };
-    
-    register(body)
+
+    toast.promise(
+      register(body, errorToast),
+      {
+        pending: "در حال بارگذاری ...",
+        success: "ثبت نام با موفقیت انجام شد",
+      },
+      { position: "top-center" }
+    );
   };
 
   return (
@@ -174,9 +185,10 @@ export default function Register() {
           <a className="text-mainPurple" href="/terms-conditions">
             قوانین و شرایط
           </a>{" "}
-          استفاده از خدمت فروشگاه اینترنتی دل پوش را پذیرفته اید.
+          استفاده از خدمت فروشگاه اینترنتی لوکسی پت را پذیرفته اید.
         </p>
       </div>
+      <ToastContainer />
     </main>
   );
 }
