@@ -12,5 +12,15 @@ export async function register(body: User) {
 
   const data = await res.json();
   console.log({ data });
+  saveCookie("session", data.accessToken, 10);
 }
 
+export function saveCookie(
+  cookieName: string,
+  cookieValue: string,
+  exDay: number = 10
+) {
+  const expiredDay = new Date();
+  expiredDay.setTime(expiredDay.getTime() + exDay * 24 * 60 * 60 * 1000); // {exDay} rooz bad
+  document.cookie = `${cookieName}=${cookieValue};path=/;expires=${expiredDay}`;
+}

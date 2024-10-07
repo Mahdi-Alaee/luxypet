@@ -66,7 +66,7 @@ export default function Register() {
       email: email.value,
       password: password.value,
     };
-
+    
     register(body)
   };
 
