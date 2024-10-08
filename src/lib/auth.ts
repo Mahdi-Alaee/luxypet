@@ -1,7 +1,14 @@
 import { User } from "@/types/auth";
+import { Dispatch, SetStateAction } from "react";
 
-export async function register(body: User, errorToast: (txt:string) => void) {
+export async function register(
+  body: User,
+  errorToast: (txt: string) => void,
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  goToHome: () => void
+) {
   console.log({ body });
+  setLoading(true);
   const res = await fetch("http://localhost:3000/api/auth/register", {
     method: "POST",
     headers: {
@@ -13,10 +20,15 @@ export async function register(body: User, errorToast: (txt:string) => void) {
   const data = await res.json();
   console.log({ data });
   if (data.error) {
+    setLoading(false);
     errorToast(data.error);
     throw data.error;
   }
   saveCookie("session", data.accessToken, 10);
+  setTimeout(() => {
+    goToHome();
+  }, 1000);
+  setLoading(false);
   return true;
 }
 

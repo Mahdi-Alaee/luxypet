@@ -12,6 +12,7 @@ import {
   required,
   theSameAs,
 } from "@/validation/inputs/validation-rules";
+import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaPhoneAlt, FaUser } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
@@ -47,6 +48,9 @@ export default function Register() {
   const [isRePasswordHidden, setIsRePasswordHidden] = useState(true);
 
   const [isFormValid, setIsFormValid] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     setIsFormValid(
@@ -64,6 +68,8 @@ export default function Register() {
     const errorToast = (txt: string) =>
       toast.info(txt, { position: "top-center", className: "font-sans" });
 
+    const goToHome = () => router.push("/");
+
     const body = {
       name: name.value,
       phone: phone.value,
@@ -72,7 +78,7 @@ export default function Register() {
     };
 
     toast.promise(
-      register(body, errorToast),
+      register(body, errorToast, setLoading, goToHome),
       {
         pending: "در حال بارگذاری ...",
         success: "ثبت نام با موفقیت انجام شد",
@@ -174,7 +180,7 @@ export default function Register() {
               className="bg-mainPurple text-white w-full rounded-lg 
           py-3 duration-100 cursor-pointer hover:bg-opacity-80 disabled:opacity-40"
               type="submit"
-              disabled={!isFormValid}
+              disabled={!isFormValid || loading}
             >
               ثبت
             </button>
