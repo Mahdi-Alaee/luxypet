@@ -53,6 +53,6 @@ export async function getMe(token: string | undefined) {
       Authorization: token,
     },
   });
-  const data = await res.json();
+  const data = await res.json() as User;
   return data;
 }
