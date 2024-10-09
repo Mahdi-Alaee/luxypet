@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     const res = (await UserModel.create(body)) as User;
 
     const accessToken = jwt.sign(
-      { _id: res._id, name: res.name },
+      { _id: res._id, name: res.name, email: res.email, phone: res.phone },
       process.env.JWT_SALT!
     );
 
@@ -28,8 +28,10 @@ export async function POST(req: NextRequest) {
       str = "ایمیل";
     } else if (keys[0] === "phone") {
       str = "شماره تلفن";
-    } else return Response.json({error:err});
+    } else return Response.json({ error: err });
 
-    return Response.json({ error: `کاربر گرامی "${str}" شما در پایگاه داده ما وجود دارد "${str}" دیگری انتخاب کنید` });
+    return Response.json({
+      error: `کاربر گرامی "${str}" شما در پایگاه داده ما وجود دارد "${str}" دیگری انتخاب کنید`,
+    });
   }
 }

@@ -41,3 +41,18 @@ export function saveCookie(
   expiredDay.setTime(expiredDay.getTime() + exDay * 24 * 60 * 60 * 1000); // {exDay} rooz bad
   document.cookie = `${cookieName}=${cookieValue};path=/;expires=${expiredDay}`;
 }
+
+export async function getMe(token: string | undefined) {
+  console.log(token);
+  
+  if (!token) return false;
+ 
+  const res = await fetch("http://localhost:3000/api/auth/me", {
+    method: 'GET',
+    headers: {
+      Authorization: token,
+    },
+  });
+  const data = await res.json();
+  return data;
+}
