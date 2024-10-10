@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import MenuButton from "../small/MenuButton";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import MobileMenu from "../medium/MobileMenu";
 import Image from "next/image";
+import { AppContext } from "@/context/app";
+import { FaUser } from "react-icons/fa";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const context = useContext(AppContext);
+  console.log(context?.user);
+  
 
   return (
     <header className="bg-mainPurple p-4 sticky z-50">
@@ -17,6 +22,13 @@ export default function Header() {
 
         {/* sign buttons */}
         <div className="hidden md:flex gap-x-10">
+          {context?.user ? (
+            <Link href='/profile' className="border-4 font-bold border-gray-50 text-gray-50 px-4 py-2 rounded-full duration-150 flex gap-x-2 
+          text-lg hover:bg-gray-200 hover:text-mainPurple">
+              {context.user.name} <FaUser className="text-xl" />
+            </Link>
+          ) : (
+            <>
           <Link
             className="border-4 font-bold border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
           hover:bg-gray-200 hover:text-mainPurple"
@@ -31,6 +43,8 @@ export default function Header() {
           >
             ثبت نام
           </Link>
+            </>
+          )}
         </div>
         {/* desktop menu */}
         <nav className="hidden md:block">

@@ -42,9 +42,7 @@ export function saveCookie(
   document.cookie = `${cookieName}=${cookieValue};path=/;expires=${expiredDay}`;
 }
 
-export async function getMe(token: string | undefined) {
-  console.log(token);
-  
+export async function getMe(token: string | undefined) {  
   if (!token) return false;
  
   const res = await fetch("http://localhost:3000/api/auth/me", {
