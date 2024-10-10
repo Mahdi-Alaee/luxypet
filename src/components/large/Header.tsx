@@ -11,7 +11,6 @@ import { FaUser } from "react-icons/fa";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const context = useContext(AppContext);
-  console.log(context?.user);
   
 
   return (

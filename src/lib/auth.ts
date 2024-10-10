@@ -1,11 +1,47 @@
 import { User } from "@/types/auth";
+import jwt from "jsonwebtoken";
 import { Dispatch, SetStateAction } from "react";
+
+export interface LoginData {
+  phone: string;
+  password: string;
+}
+
+export async function login(
+  body: LoginData,
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  errorToast: (txt: string) => void,
+  goToHome: () => void,
+  reloadUser: () => void
+) {
+  const res = await fetch("http://localhost:3000/api/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  const data = await res.json();
+
+  setLoading(false);
+  if (data.ok) {
+    saveCookie("session", data.accessToken, 10);
+    reloadUser();
+    setTimeout(() => {
+      goToHome();
+    }, 1000);
+    return true;
+  } else {
+    throw new Error("Credentials error");
+  }
+}
 
 export async function register(
   body: User,
   errorToast: (txt: string) => void,
   setLoading: Dispatch<SetStateAction<boolean>>,
-  goToHome: () => void
+  goToHome: () => void,
+  reloadUser: () => void
 ) {
   console.log({ body });
   setLoading(true);
@@ -25,10 +61,10 @@ export async function register(
     throw data.error;
   }
   saveCookie("session", data.accessToken, 10);
+  reloadUser();
   setTimeout(() => {
     goToHome();
   }, 1000);
-  setLoading(false);
   return true;
 }
 
@@ -42,15 +78,22 @@ export function saveCookie(
   document.cookie = `${cookieName}=${cookieValue};path=/;expires=${expiredDay}`;
 }
 
-export async function getMe(token: string | undefined) {  
+export async function getMe(token: string | undefined) {
   if (!token) return false;
- 
+
   const res = await fetch("http://localhost:3000/api/auth/me", {
-    method: 'GET',
+    method: "GET",
     headers: {
       Authorization: token,
     },
   });
-  const data = await res.json() as User;
+  const data = (await res.json()) as User;
   return data;
+}
+
+export function createToken(user: User) {
+  return jwt.sign(
+    { _id: user._id, name: user.name, email: user.email, phone: user.phone },
+    process.env.JWT_SALT!
+  );
 }

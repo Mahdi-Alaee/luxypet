@@ -3,7 +3,7 @@ import connectDB from "@/lib/database";
 import { UserModel } from "@/models/User";
 import { User } from "@/types/auth";
 import { NextRequest } from "next/server";
-import jwt from "jsonwebtoken";
+import { createToken } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,10 +11,7 @@ export async function POST(req: NextRequest) {
     await connectDB();
     const res = (await UserModel.create(body)) as User;
 
-    const accessToken = jwt.sign(
-      { _id: res._id, name: res.name, email: res.email, phone: res.phone },
-      process.env.JWT_SALT!
-    );
+    const accessToken = createToken(res);
 
     console.log(res);
     return Response.json({ res, accessToken });
