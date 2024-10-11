@@ -8,18 +8,21 @@ import Cookies from "js-cookie"; // Import js-cookie for client-side usage
 interface AppContextType {
   user: User | false;
   reloadUser: () => void;
+  loading: boolean
 }
 
 export const AppContext = createContext<null | AppContextType>(null);
 
 export function AppContextProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | false>(false);
+  const [loading,setLoading] = useState(true);
 
   useEffect(() => {
     reloadUser();
   }, []);
 
   const reloadUser = async () => {
+    setLoading(true);
     const sessionToken = Cookies.get("session"); // Use js-cookie to get cookie on client-side
     if (sessionToken) {
       const data = await getMe(sessionToken);
@@ -27,10 +30,11 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
     } else {
       setUser(false);
     }
+    setLoading(false);
   };
 
   return (
-    <AppContext.Provider value={{ user, reloadUser }}>
+    <AppContext.Provider value={{ user, reloadUser,loading }}>
       {children}
     </AppContext.Provider>
   );

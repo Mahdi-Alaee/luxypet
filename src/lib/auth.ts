@@ -96,7 +96,14 @@ export async function getMe(token: string | undefined) {
 
 export function createToken(user: User) {
   return jwt.sign(
-    { _id: user._id, name: user.name, email: user.email, phone: user.phone },
+    {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      emailVerified: user.emailVerified,
+      isAdmin: user.isAdmin,
+    },
     process.env.JWT_SALT!
   );
 }

@@ -77,6 +77,7 @@ export default function Register() {
       phone: phone.value,
       email: email.value,
       password: password.value,
+      isAdmin: false,
     };
 
     toast.promise(
