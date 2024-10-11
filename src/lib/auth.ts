@@ -79,7 +79,9 @@ export function saveCookie(
 }
 
 export async function getMe(token: string | undefined) {
-  if (!token) return false;
+  if (!token) {
+    return false;
+  }
 
   const res = await fetch("http://localhost:3000/api/auth/me", {
     method: "GET",
@@ -87,6 +89,7 @@ export async function getMe(token: string | undefined) {
       Authorization: token,
     },
   });
+  if (!res.ok) return false;
   const data = (await res.json()) as User;
   return data;
 }
