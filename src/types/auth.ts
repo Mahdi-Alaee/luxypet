@@ -6,5 +6,5 @@ export interface User {
   password?: string;
   phoneVerified?: boolean;
   emailVerified?: boolean;
-  isAdmin:boolean;
+  isAdmin?:boolean;
 }

@@ -4,12 +4,15 @@ import { UserModel } from "@/models/User";
 import { User } from "@/types/auth";
 import { NextRequest } from "next/server";
 import { createToken } from "@/lib/auth";
+import bcrypt from "bcrypt";
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
+    const body = (await req.json()) as User;
+    const password = await bcrypt.hash(body.password!, 10);
+
     await connectDB();
-    const res = (await UserModel.create(body)) as User;
+    const res = (await UserModel.create({ ...body, password })) as User;
 
     const accessToken = createToken(res);
 
