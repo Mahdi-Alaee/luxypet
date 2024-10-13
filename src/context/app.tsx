@@ -6,7 +6,7 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import Cookies from "js-cookie"; // Import js-cookie for client-side usage
 
 interface AppContextType {
-  user: User | false;
+  user: User | null;
   reloadUser: () => void;
   loading: boolean
 }
@@ -14,7 +14,7 @@ interface AppContextType {
 export const AppContext = createContext<null | AppContextType>(null);
 
 export function AppContextProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | false>(false);
+  const [user, setUser] = useState<User | null>(null);
   const [loading,setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
       const data = await getMe(sessionToken);
       setUser(data);
     } else {
-      setUser(false);
+      setUser(null);
     }
     setLoading(false);
   };

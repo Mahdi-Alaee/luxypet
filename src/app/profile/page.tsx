@@ -39,19 +39,19 @@ export default function Profile() {
   const [currentPassword, setCurrentPassword] = useState<{
     value: string;
     isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  }>({ value: "", isValid: true });
   const [isCurrentPasswordHidden, setIsCurrentPasswordHidden] = useState(true);
 
   const [password, setPassword] = useState<{
     value: string;
     isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  }>({ value: "", isValid: true });
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [rePassword, setRePassword] = useState<{
     value: string;
     isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  }>({ value: "", isValid: true });
 
   const [isRePasswordHidden, setIsRePasswordHidden] = useState(true);
 
@@ -61,27 +61,61 @@ export default function Profile() {
   const router = useRouter();
 
   useEffect(() => {
+    console.log({
+      name:name.isValid,
+phone:phone.isValid,
+email:email.isValid,
+currentPassword:currentPassword.isValid,
+password:password.isValid,
+rePassword:rePassword.isValid,
+    });
+    
     setIsFormValid(
       !!name.isValid &&
         !!phone.isValid &&
         !!email.isValid &&
+        !!currentPassword.isValid &&
         !!password.isValid &&
         !!rePassword.isValid
     );
-  }, [name, phone, email, password, rePassword]);
+  }, [name, phone, email, password, rePassword, currentPassword]);
 
   useEffect(() => {
     const user = context?.user as User | undefined;
 
-    setName({ isValid: undefined, value: user?.name || "" });
-    setPhone({ isValid: undefined, value: user?.phone || "" });
-    setEmail({ isValid: undefined, value: user?.email || "" });
+    setName({ isValid: true, value: user?.name || "" });
+    setPhone({ isValid: true, value: user?.phone || "" });
+    setEmail({ isValid: true, value: user?.email || "" });
   }, [context]);
 
-  const formSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const formSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    const res = await fetch("http://localhost:3000/api/profile", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        _id: context?.user?._id,
+        name: name.value,
+        email:email.value,
+        phone:phone.value,
+        currentPassword:currentPassword.value,
+        password:password.value,
+        rePassword:rePassword.value,
+      }),
+    });
+    if(res.ok){
+      console.log({res});
+      
+      const data = await res.json();
+      console.log(data);
+    }
+    setLoading(false);
   };
+
+  console.log(loading, isFormValid);
 
   if (context?.loading) {
     return <p className="text-3xl mt-12 text-center">Loading ...</p>;
@@ -148,7 +182,7 @@ export default function Profile() {
             state={currentPassword}
             setState={setCurrentPassword}
             validationRules={[required(), minLength(8), maxLength(20)]}
-            type={`${isPasswordHidden ? "password" : "text"}`}
+            type={`${isCurrentPasswordHidden ? "password" : "text"}`}
           />
           <TextBox
             icon={
