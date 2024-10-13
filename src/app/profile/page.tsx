@@ -3,6 +3,7 @@
 import UserTabs from "@/components/medium/UserTabs";
 import TextBox from "@/components/small/TextBox";
 import { AppContext } from "@/context/app";
+import { User } from "@/types/auth";
 import {
   fieldCount,
   isEmail,
@@ -18,6 +19,8 @@ import { FaEye, FaEyeSlash, FaPhoneAlt, FaUser } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 
 export default function Profile() {
+  const context = useContext(AppContext);
+
   const [name, setName] = useState<{
     value: string;
     isValid: undefined | boolean;
@@ -55,7 +58,6 @@ export default function Profile() {
   const [isFormValid, setIsFormValid] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const context = useContext(AppContext);
   const router = useRouter();
 
   useEffect(() => {
@@ -67,6 +69,14 @@ export default function Profile() {
         !!rePassword.isValid
     );
   }, [name, phone, email, password, rePassword]);
+
+  useEffect(() => {
+    const user = context?.user as User | undefined;
+
+    setName({ isValid: undefined, value: user?.name || "" });
+    setPhone({ isValid: undefined, value: user?.phone || "" });
+    setEmail({ isValid: undefined, value: user?.email || "" });
+  }, [context]);
 
   const formSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
