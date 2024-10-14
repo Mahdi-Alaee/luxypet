@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
     const findedUser = await UserModel.findById(user._id);
     // console.log({ findedUser });
     if (!findedUser.name) throw "error in finding me";
-    return Response.json(user);
+    return Response.json(findedUser);
   } catch (err) {
     console.log(err);
     return Response.json(false);

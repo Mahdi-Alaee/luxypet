@@ -11,13 +11,15 @@ export async function PUT(req: NextRequest) {
 
   await connectDB();
   const currentUser = (await UserModel.findById(userBody._id)) as User;
-  if (
-    userBody.currentPassword &&
-    (await bcrypt.compare(userBody.currentPassword, currentUser.password!))
-  ) {
-    body.password = await bcrypt.hash(userBody.password, 10);
-  } else {
-    return Response.json({ ok: false, error: "پسوورد را به درستی وارد کنید" });
+  if (!!userBody.currentPassword && !!userBody.password && !!userBody.rePassword) {
+    if (await bcrypt.compare(userBody.currentPassword, currentUser.password!)) {
+      body.password = await bcrypt.hash(userBody.password, 10);
+    } else {
+      return Response.json({
+        ok: false,
+        error: "رمز فعلی را به درستی وارد کنید",
+      });
+    }
   }
 
   const res = await UserModel.updateOne(body);

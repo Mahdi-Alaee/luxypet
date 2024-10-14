@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaPhoneAlt, FaUser } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Profile() {
   const context = useContext(AppContext);
@@ -52,7 +53,6 @@ export default function Profile() {
     value: string;
     isValid: undefined | boolean;
   }>({ value: "", isValid: true });
-
   const [isRePasswordHidden, setIsRePasswordHidden] = useState(true);
 
   const [isFormValid, setIsFormValid] = useState(false);
@@ -61,15 +61,6 @@ export default function Profile() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log({
-      name:name.isValid,
-phone:phone.isValid,
-email:email.isValid,
-currentPassword:currentPassword.isValid,
-password:password.isValid,
-rePassword:rePassword.isValid,
-    });
-    
     setIsFormValid(
       !!name.isValid &&
         !!phone.isValid &&
@@ -99,23 +90,34 @@ rePassword:rePassword.isValid,
       body: JSON.stringify({
         _id: context?.user?._id,
         name: name.value,
-        email:email.value,
-        phone:phone.value,
-        currentPassword:currentPassword.value,
-        password:password.value,
-        rePassword:rePassword.value,
+        email: email.value,
+        phone: phone.value,
+        currentPassword: currentPassword.value,
+        password: password.value,
+        rePassword: rePassword.value,
       }),
     });
-    if(res.ok){
-      console.log({res});
-      
+    if (res.ok) {
+      console.log({ res });
       const data = await res.json();
-      console.log(data);
+      if (data.ok) {
+        console.log("ok");
+
+        toast.success("اطلاعات با موفقیت ویرایش گردید");
+        setPassword({ isValid: true, value: "" });
+        setRePassword({ isValid: true, value: "" });
+        setCurrentPassword({ isValid: true, value: "" });
+        setTimeout(() => {
+          context?.reloadUser();
+        }, 1500);
+      } else {
+        toast.info(data.error);
+      }
+    } else {
+      toast.error("خطایی رخ داد!");
     }
     setLoading(false);
-  };
-
-  console.log(loading, isFormValid);
+  };  
 
   if (context?.loading) {
     return <p className="text-3xl mt-12 text-center">Loading ...</p>;
@@ -234,6 +236,7 @@ rePassword:rePassword.isValid,
           </button>
         </form>
       </div>
+      <ToastContainer position="top-center" bodyClassName="font-sans" />
     </main>
   );
 }
