@@ -19,8 +19,8 @@ interface TextBoxProps {
     }>
   >;
   placeholder: string;
-  icon: ReactNode;
-  validationRules: ValidationRule[];
+  icon?: ReactNode;
+  validationRules?: ValidationRule[];
   type?: HTMLInputTypeAttribute
 }
 
@@ -29,7 +29,7 @@ export default function TextBox({
   setState,
   placeholder,
   icon,
-  validationRules,
+  validationRules = [],
   type = 'text'
 }: TextBoxProps) {
   const [message, setMessage] = useState("");
