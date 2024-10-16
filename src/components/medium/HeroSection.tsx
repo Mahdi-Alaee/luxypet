@@ -1,13 +1,13 @@
 import MySwiper from "./MySwiper";
 
 const deskImages = [
-  "/images/1.jpg",
-  "/images/2.jpg",
-  "/images/3.jpg",
-  "/images/4.jpg",
-  "/images/5.jpg",
+  "/images/slider/1.jpg",
+  "/images/slider/2.jpg",
+  "/images/slider/3.jpg",
+  "/images/slider/4.jpg",
+  "/images/slider/5.jpg",
 ];
-const mobileImages = ["/images/6.jpg"];
+const mobileImages = ["/images/slider/6.jpg"];
 
 export default function HeroSection() {
   return (
