@@ -1,10 +1,13 @@
 "use client";
 
+import GlobalForm from "@/components/medium/GlobalForm";
 import TextBox from "@/components/small/TextBox";
 import { AppContext } from "@/context/app";
 import { useRouter } from "next/navigation";
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
+
+// ! @todo GlobalForm component
 
 export default function NewBreed() {
   const context = useContext(AppContext);
@@ -20,46 +23,28 @@ export default function NewBreed() {
   const router = useRouter();
 
   useEffect(() => {
-    setIsFormValid(
-      !!title.isValid
-    );
+    setIsFormValid(!!title.isValid);
   }, [title]);
 
   const formSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    
   };
 
   if (context?.loading) {
     return <p className="text-3xl mt-12 text-center">Loading ...</p>;
   } else if (!context?.user) router.replace("/");
   return (
-    <div
-      className="bg-gray-100 max-w-xl mt-8 flex flex-col items-center border 
-      border-gray-200 rounded-2xl p-5 w-full mx-auto gap-y-5"
-    >
-      <h1
-        className="relative text-4xl font-vazirMedium text-gray-600 
-        before:w-1/2 before:bg-mainPurple before:bg-opacity-60 
-        before:absolute before:right-0 before:bottom-0"
-      >
-        ویرایش اطلاعات
-      </h1>
-      <form
-        className="w-full flex flex-col gap-y-2 rounded-md"
-        onSubmit={formSubmit}
+    <div className="pt-8 max-w-lg mx-auto">
+      <GlobalForm
+        formSubmit={formSubmit}
+        isFormValid={isFormValid}
+        loading={loading}
+        title="افزودن نژاد"
       >
         <TextBox state={title} setState={setTitle} placeholder="نام نژاد" />
-        <button
-          className="bg-mainPurple text-white w-full rounded-lg 
-          py-3 duration-100 cursor-pointer hover:bg-opacity-80 disabled:opacity-40"
-          type="submit"
-          disabled={!isFormValid || loading}
-        >
-          ثبت
-        </button>
-      </form>
+      </GlobalForm>
+
       <ToastContainer position="top-center" bodyClassName="font-sans" />
     </div>
   );
