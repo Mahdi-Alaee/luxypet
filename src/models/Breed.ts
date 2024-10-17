@@ -2,7 +2,7 @@ import { model, models, Schema } from "mongoose";
 
 const BreedSchema = new Schema(
   {
-    title: { type: String, required: true },
+    title: { type: String, required: true, unique: true },
     image: { type: String, required: true },
     body: { type: String, required: false },
   },

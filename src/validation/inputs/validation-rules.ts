@@ -6,7 +6,8 @@ export interface ValidationRule {
     | "COUNT"
     | "EMAIL"
     | "THE_SAME_AS"
-    | "MUST_NUMBER";
+    | "MUST_NUMBER"
+    | "IS_IMAGE";
   validationValue?: number | string;
 }
 
@@ -44,6 +45,11 @@ export const theSameAs = (validationValue: string) =>
 export const mustNumber = () =>
   ({
     rule: "MUST_NUMBER",
+  } as ValidationRule);
+
+export const isImage = () =>
+  ({
+    rule: "IS_IMAGE",
   } as ValidationRule);
 
 // ! validate
@@ -96,6 +102,17 @@ export default function validate(
             messages.push(`این فیلد باید از اعداد تشکیل شده باشد!`);
           }
           break;
+        case "IS_IMAGE":{
+          const regex = new RegExp(
+            "^[a-zA-Z0-9_-]+.(jpg|jpeg|png|gif|bmp|webp|svg)$",
+            "i"
+          );
+
+          if (!regex.test(value.toString())) {
+            messages.push(`فایل نامعتبر است!`);
+          }
+          break;
+        }
       }
     }
   }
