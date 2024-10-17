@@ -17,6 +17,12 @@ export default function NewBreed() {
     isValid: undefined | boolean;
   }>({ value: "", isValid: undefined });
 
+  const [image, setImage] = useState<{
+    value: string;
+    isValid: undefined | boolean;
+  }>({ value: "", isValid: undefined });
+
+
   const [isFormValid, setIsFormValid] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -43,6 +49,7 @@ export default function NewBreed() {
         title="افزودن نژاد"
       >
         <TextBox state={title} setState={setTitle} placeholder="نام نژاد" />
+        <TextBox state={image} setState={setImage} placeholder="(test.jpg) نام تصویر + پسوند" inputDir="ltr" />
       </GlobalForm>
 
       <ToastContainer position="top-center" bodyClassName="font-sans" />

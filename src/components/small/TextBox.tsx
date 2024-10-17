@@ -21,7 +21,8 @@ interface TextBoxProps {
   placeholder: string;
   icon?: ReactNode;
   validationRules?: ValidationRule[];
-  type?: HTMLInputTypeAttribute
+  type?: HTMLInputTypeAttribute;
+  inputDir?: 'rtl' | 'ltr'
 }
 
 export default function TextBox({
@@ -30,7 +31,8 @@ export default function TextBox({
   placeholder,
   icon,
   validationRules = [],
-  type = 'text'
+  type = 'text',
+  inputDir = 'rtl'
 }: TextBoxProps) {
   const [message, setMessage] = useState("");
 
@@ -59,6 +61,7 @@ export default function TextBox({
           placeholder={placeholder}
           value={state.value}
           onChange={onInputChange}
+          style={{direction:inputDir}}
         />
         {icon}
       </div>
