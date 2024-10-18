@@ -1,5 +1,6 @@
 'use client'
 
+import DeleteButton from "@/components/small/DeleteButton";
 /* eslint-disable @next/next/no-img-element */
 import NavigateButton from "@/components/small/NavigateButton";
 import { Breed } from "@/types/entities";
@@ -33,6 +34,7 @@ export default function Breeds() {
           {breeds.map((breed: Breed) => (
             <li className="flex justify-between bg-gray-100 h-20" key={breed._id}>
               <span className="my-auto mr-4 text-lg">{breed.title}</span>
+              <DeleteButton className="my-4">حذف</DeleteButton>
               <img className="h-full" src={breed.image} alt={breed.title} />
             </li>
           ))}
