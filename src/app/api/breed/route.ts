@@ -18,3 +18,16 @@ export async function POST(req: NextRequest) {
         return Response.json({ok:false, error: 'نام نژاد نمیتواند تکراری باشد'})
     }
 }
+
+export async function GET() {
+    try {
+        await connectDB();
+        const data = await BreedModel.find();
+        console.log({data});
+        
+        return Response.json({ok:true,data})
+    } catch (error) {
+        console.log(error);
+        return Response.json({ok:false,error})
+    }
+}

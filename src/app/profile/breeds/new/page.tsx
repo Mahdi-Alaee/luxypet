@@ -54,6 +54,9 @@ export default function NewBreed() {
       toast.success("نژاد با موفقیت افزوده شد");
       setTitle({ isValid: undefined, value: "" });
       setImage({ isValid: undefined, value: "" });
+      setTimeout(() => {
+        router.push('/profile/breeds')
+      }, 1000);
     } else toast.error(data.error);
     setLoading(false);
   };

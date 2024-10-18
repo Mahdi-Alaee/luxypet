@@ -16,6 +16,10 @@ export default async function RootLayout({
           <Header />
           {children}
         </Providers>
+        <br />
+        <br />
+        <br />
+        <br />
       </body>
     </html>
   );
