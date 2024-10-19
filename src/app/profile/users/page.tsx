@@ -3,7 +3,7 @@
 import DeleteButton from "@/components/small/DeleteButton";
 import { User } from "@/types/auth";
 import { useEffect, useState } from "react";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -21,8 +21,19 @@ export default function Users() {
     setLoading(false);
   };
 
-  const deleteUser = (_id: string) => {
-    console.log({_id});
+  const deleteUser = async (_id: string) => {
+    const res = await (
+        await fetch("http://localhost:3000/api/user?_id=" + _id, {
+          method: "DELETE",
+        })
+      ).json();
+      console.log(res);
+      if (res.ok) {
+        toast.success("کاربر با موفقیت حذف شد");
+        getUsers();
+      } else {
+        toast.error(res.error);
+      }
   };
 
   if (loading) return <p className="text-center text-2xl mt-12">loading ...</p>;
