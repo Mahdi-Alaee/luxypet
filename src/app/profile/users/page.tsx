@@ -1,13 +1,18 @@
 "use client";
 
 import DeleteButton from "@/components/small/DeleteButton";
+import { AppContext } from "@/context/app";
 import { User } from "@/types/auth";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const context = useContext(AppContext);
 
   useEffect(() => {
     getUsers();
@@ -23,20 +28,22 @@ export default function Users() {
 
   const deleteUser = async (_id: string) => {
     const res = await (
-        await fetch("http://localhost:3000/api/user?_id=" + _id, {
-          method: "DELETE",
-        })
-      ).json();
-      console.log(res);
-      if (res.ok) {
-        toast.success("کاربر با موفقیت حذف شد");
-        getUsers();
-      } else {
-        toast.error(res.error);
-      }
+      await fetch("http://localhost:3000/api/user?_id=" + _id, {
+        method: "DELETE",
+      })
+    ).json();
+    console.log(res);
+    if (res.ok) {
+      toast.success("کاربر با موفقیت حذف شد");
+      getUsers();
+    } else {
+      toast.error(res.error);
+    }
   };
 
-  if (loading) return <p className="text-center text-2xl mt-12">loading ...</p>;
+  if (loading || context?.loading)
+    return <p className="text-center text-2xl mt-12">loading ...</p>;
+  else if (!context?.user?.isAdmin) redirect("/");
   return (
     <div className="mt-8">
       {/* list of users */}
@@ -57,7 +64,12 @@ export default function Users() {
                 >
                   حذف
                 </DeleteButton>
-                <button className="bg-blue-500 text-lg text-white px-4 rounded-md py-2">ویرایش</button>
+                <Link
+                  href={"/profile/users/" + user._id}
+                  className="bg-blue-500 text-lg text-white px-4 rounded-md py-2"
+                >
+                  ویرایش
+                </Link>
               </div>
             </li>
           ))}
