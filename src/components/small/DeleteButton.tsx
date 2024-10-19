@@ -5,6 +5,8 @@ interface DeleteButtonProps {
   children: ReactNode;
   className?: string;
   modalMessage?: string;
+  onDelete: (_id: string) => void;
+  _id: string;
 }
 
 export default function DeleteButton({
@@ -12,18 +14,18 @@ export default function DeleteButton({
   children,
   className,
   modalMessage = "از حذف این آیتم اطمینان دارید؟",
+  onDelete,
+  _id,
 }: DeleteButtonProps) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-
-  const deleteItem = () => {
-    console.log("deleted!");
-    setIsOpenModal(false);
-  };
 
   return (
     <>
       {/* button */}
-      <button className={`bg-red-500 text-lg text-white px-4 rounded-md ${className}`} onClick={() => setIsOpenModal(true)}>
+      <button
+        className={`bg-red-500 text-lg text-white px-4 rounded-md ${className}`}
+        onClick={() => setIsOpenModal(true)}
+      >
         {children}
       </button>
       {/* modal */}
@@ -34,15 +36,27 @@ export default function DeleteButton({
         onClick={() => setIsOpenModal(false)}
       >
         {/* modal box */}
-        <div className="bg-gray-200 p-4 flex flex-col gap-y-4" onClick={e => e.stopPropagation()}>
+        <div
+          className="bg-gray-200 p-4 flex flex-col gap-y-4"
+          onClick={(e) => e.stopPropagation()}
+        >
           {/* question */}
           <p className="text-xl">{modalMessage}</p>
           {/* buttons */}
           <div className="flex gap-x-4 justify-center">
-            <button className="bg-red-500 text-white p-2 rounded-md" onClick={deleteItem}>
+            <button
+              className="bg-red-500 text-white p-2 rounded-md"
+              onClick={() => {
+                onDelete(_id);
+                setIsOpenModal(false);
+              }}
+            >
               حذف
             </button>
-            <button className="border-2 p-2" onClick={() => setIsOpenModal(false)}>
+            <button
+              className="border-2 p-2"
+              onClick={() => setIsOpenModal(false)}
+            >
               لغو
             </button>
           </div>
