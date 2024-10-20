@@ -3,3 +3,9 @@ export interface Breed {
     title:string;
     image:string;
 }
+
+export interface Parent{
+    _id:string;
+    name:string;
+    image:string;
+}
