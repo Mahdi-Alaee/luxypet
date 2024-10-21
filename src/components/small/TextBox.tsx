@@ -22,7 +22,7 @@ interface TextBoxProps {
   icon?: ReactNode;
   validationRules?: ValidationRule[];
   type?: HTMLInputTypeAttribute;
-  inputDir?: 'rtl' | 'ltr'
+  inputDir?: "rtl" | "ltr";
 }
 
 export default function TextBox({
@@ -31,8 +31,8 @@ export default function TextBox({
   placeholder,
   icon,
   validationRules = [],
-  type = 'text',
-  inputDir = 'rtl'
+  type = "text",
+  inputDir = "rtl",
 }: TextBoxProps) {
   const [message, setMessage] = useState("");
 
@@ -46,7 +46,7 @@ export default function TextBox({
       setMessage(messages[0]);
     } else setMessage("");
 
-    setState({ value, isValid });
+    setState({ value: value, isValid });
   };
 
   return (
@@ -61,7 +61,7 @@ export default function TextBox({
           placeholder={placeholder}
           value={state.value}
           onChange={onInputChange}
-          style={{direction:inputDir}}
+          style={{ direction: inputDir }}
         />
         {icon}
       </div>

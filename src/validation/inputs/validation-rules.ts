@@ -7,7 +7,8 @@ export interface ValidationRule {
     | "EMAIL"
     | "THE_SAME_AS"
     | "MUST_NUMBER"
-    | "IS_IMAGE";
+    | "IS_IMAGE"
+    | "IS_DATE";
   validationValue?: number | string;
 }
 
@@ -50,6 +51,11 @@ export const mustNumber = () =>
 export const isImage = () =>
   ({
     rule: "IS_IMAGE",
+  } as ValidationRule);
+
+export const isDate = () =>
+  ({
+    rule: "IS_DATE",
   } as ValidationRule);
 
 // ! validate
@@ -102,7 +108,7 @@ export default function validate(
             messages.push(`این فیلد باید از اعداد تشکیل شده باشد!`);
           }
           break;
-        case "IS_IMAGE":{
+        case "IS_IMAGE": {
           const regex = new RegExp(
             "^[a-zA-Z0-9_-]+.(jpg|jpeg|png|gif|bmp|webp|svg)$",
             "i"
@@ -110,6 +116,17 @@ export default function validate(
 
           if (!regex.test(value.toString())) {
             messages.push(`فایل نامعتبر است!`);
+          }
+          break;
+        }
+        case "IS_DATE": {
+          const regex = new RegExp(
+            "^(13|14)[0-9]{2}\/(0[1-9]|1[0-2])\/(0[1-9]|1[0-9]|2[0-9]|3[01])$",
+            "i"
+          );
+
+          if (!regex.test(value.toString())) {
+            messages.push(`تاریخ نامعتبر است!`);
           }
           break;
         }
