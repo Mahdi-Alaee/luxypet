@@ -120,13 +120,19 @@ export default function Newproduct() {
       body: JSON.stringify({
         title: title.value,
         image: "/images/products/" + image.value,
+        price: price.value,
+        video: video.value,
+        birthDate: birthDate.value,
+        father: father.value,
+        mother: mother.value,
+        sex: sex.value,
+        code: code.value,
+        breed: breed.value,
       }),
     });
     const data = await res.json();
     if (data.ok) {
       toast.success("محصول با موفقیت افزوده شد");
-      setTitle({ isValid: undefined, value: "" });
-      setImage({ isValid: undefined, value: "" });
       setTimeout(() => {
         router.push("/profile/products");
       }, 1000);
