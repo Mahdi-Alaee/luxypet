@@ -55,7 +55,7 @@ export default function Newproduct() {
       },
       body: JSON.stringify({
         title: title.value,
-        image: "/images/products/" + image.value,
+        image: image.value,
         price: price.value,
         video: video.value,
         birthDate: birthDate.value,
@@ -89,6 +89,7 @@ export default function Newproduct() {
         setBreeds={setBreeds}
         parents={parents}
         setParents={setParents}
+        formTitle="افزودن محصول"
         title={title}
         image={image}
         code={code}

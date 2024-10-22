@@ -5,10 +5,10 @@ interface SelectBoxProps {
   items: { _id: string; name?: string; title?: string }[];
   state: { value: string; isValid: undefined | boolean };
   setState: Dispatch<
-  SetStateAction<{
-    value: string;
-    isValid: undefined | boolean;
-  }>
+    SetStateAction<{
+      value: string;
+      isValid: undefined | boolean;
+    }>
   >;
   optionPropName: "name" | "title";
   valuePropName?: "_id" | "name" | "title";
@@ -36,6 +36,7 @@ export default function SelectBox({
           ? "border-4 border-green-500"
           : ""
       } ${className}`}
+      value={state.value}
     >
       <option value="f">{defaultItemText}</option>
       {items.map((item) => (

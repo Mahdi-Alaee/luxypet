@@ -4,6 +4,7 @@ import DeleteButton from "@/components/small/DeleteButton";
 /* eslint-disable @next/next/no-img-element */
 import NavigateButton from "@/components/small/NavigateButton";
 import { Product } from "@/types/entities";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -55,7 +56,7 @@ export default function Products() {
               key={product._id}
             >
               <span className="my-auto mr-4 text-lg">{product.code}</span>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center gap-x-4">
                 <DeleteButton
                   _id={product._id}
                   onDelete={deleteProduct}
@@ -63,10 +64,16 @@ export default function Products() {
                 >
                   حذف
                 </DeleteButton>
+                <Link
+                  href={"/profile/products/" + product._id}
+                  className="bg-blue-500 text-lg text-white px-4 rounded-md py-2"
+                >
+                  ویرایش
+                </Link>
               </div>
               <img
                 className="h-full mr-auto"
-                src={product.image}
+                src={'/images/products/'+product.image}
                 alt={product.title}
               />
             </li>

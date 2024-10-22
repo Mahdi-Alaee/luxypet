@@ -31,6 +31,7 @@ interface ProductFromProps {
   setBreeds: Dispatch<SetStateAction<Breed[]>>;
   parents: Parent[];
   setParents: Dispatch<SetStateAction<Parent[]>>;
+  formTitle:string;
   title: InputStateType;
   setTitle: InputSetStateType;
   image: InputStateType;
@@ -61,6 +62,7 @@ export default function ProductFrom({
   setBreeds,
   parents,
   setParents,
+  formTitle,
   birthDate,
   breed,
   code,
@@ -119,7 +121,7 @@ export default function ProductFrom({
       formSubmit={formSubmit}
       isFormValid={isFormValid}
       loading={loading}
-      title="افزودن محصول"
+      title={formTitle}
     >
       <TextBox
         state={title}

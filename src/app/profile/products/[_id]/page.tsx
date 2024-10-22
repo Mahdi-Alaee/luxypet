@@ -8,12 +8,13 @@ import {
   Parent,
   InputStateType,
 } from "@/types/entities";
-import { useRouter } from "next/navigation";
-import { FormEvent, useContext, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function Newproduct() {
   const context = useContext(AppContext);
+  const { _id } = useParams();
 
   const [title, setTitle] = useState<InputStateType>(inputStateDefaultValue);
 
@@ -44,18 +45,23 @@ export default function Newproduct() {
 
   const router = useRouter();
 
+  useEffect(() => {
+    loadProduct();
+  }, []);
+
   const formSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
     const res = await fetch("http://localhost:3000/api/product", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        _id,
         title: title.value,
-        image: "/images/products/" + image.value,
+        image: image.value,
         price: price.value,
         video: video.value,
         birthDate: birthDate.value,
@@ -68,12 +74,33 @@ export default function Newproduct() {
     });
     const data = await res.json();
     if (data.ok) {
-      toast.success("محصول با موفقیت افزوده شد");
+      toast.success("محصول با موفقیت ویرایش شد");
       setTimeout(() => {
         router.push("/profile/products");
       }, 1000);
     } else toast.error(data.error);
     setLoading(false);
+  };
+
+  const loadProduct = async () => {
+    const res = await (
+      await fetch("http://localhost:3000/api/product?_id=" + _id)
+    ).json();
+    if (res.ok) {
+      const product = res.data;
+      console.log({product});
+      
+      setTitle({ isValid: true, value: product.title });
+      setCode({ isValid: true, value: product.code });
+      setPrice({ isValid: true, value: product.price });
+      setImage({ isValid: true, value: product.image });
+      setVideo({ isValid: true, value: product.video });
+      setBirthDate({ isValid: true, value: product.birthDate });
+      setMother({ isValid: true, value: product.mother });
+      setFather({ isValid: true, value: product.father });
+      setSex({ isValid: true, value: product.sex });
+      setBreed({ isValid: true, value: product.breed });
+    }
   };
 
   if (context?.loading) {
@@ -89,6 +116,7 @@ export default function Newproduct() {
         setBreeds={setBreeds}
         parents={parents}
         setParents={setParents}
+        formTitle="ویرایش محصول"
         title={title}
         image={image}
         code={code}
