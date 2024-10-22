@@ -1,3 +1,22 @@
+import { Dispatch, SetStateAction } from "react";
+
+export const inputStateDefaultValue = {
+  value: "",
+  isValid: undefined,
+};
+
+export type InputStateType = {
+  value: string;
+  isValid: undefined | boolean;
+};
+
+export type InputSetStateType = Dispatch<
+  SetStateAction<{
+    value: string;
+    isValid: undefined | boolean;
+  }>
+>;
+
 export interface Breed {
   _id: string;
   title: string;

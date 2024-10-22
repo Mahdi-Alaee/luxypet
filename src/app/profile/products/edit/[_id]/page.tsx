@@ -33,10 +33,7 @@ export default function Newproduct() {
 
   const [father, setFather] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [sex, setSex] = useState<InputStateType>({
-    value: "",
-    isValid: undefined,
-  });
+  const [sex, setSex] = useState<InputStateType>(inputStateDefaultValue);
 
   const [breed, setBreed] = useState<InputStateType>(inputStateDefaultValue);
 
