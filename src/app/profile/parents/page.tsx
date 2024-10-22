@@ -51,19 +51,25 @@ export default function Parents() {
         <ul className="flex flex-col gap-y-2 mt-6">
           {parents.map((parent: Parent) => (
             <li
-              className="flex justify-between bg-gray-100 h-20"
-              key={parent._id}
-            >
-              <span className="my-auto mr-4 text-lg">{parent.name}</span>
+            className="grid grid-cols-3 grid-rows-1 bg-gray-100 h-20"
+            key={parent._id}
+          >
+            <span className="my-auto mr-4 text-lg">{parent.name}</span>
+            <div className="flex items-center justify-center">
               <DeleteButton
                 _id={parent._id}
                 onDelete={deleteParent}
-                className="my-4"
+                className="py-2"
               >
                 حذف
               </DeleteButton>
-              <img className="h-full" src={parent.image} alt={parent.name} />
-            </li>
+            </div>
+            <img
+              className="h-full mr-auto"
+              src={parent.image}
+              alt={parent.name}
+            />
+          </li>
           ))}
         </ul>
       ) : (

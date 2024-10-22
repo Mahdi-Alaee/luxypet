@@ -51,18 +51,24 @@ export default function Breeds() {
         <ul className="flex flex-col gap-y-2 mt-6">
           {breeds.map((breed: Breed) => (
             <li
-              className="flex justify-between bg-gray-100 h-20"
+              className="grid grid-cols-3 grid-rows-1 bg-gray-100 h-20"
               key={breed._id}
             >
               <span className="my-auto mr-4 text-lg">{breed.title}</span>
-              <DeleteButton
-                _id={breed._id}
-                onDelete={deleteBreed}
-                className="my-4"
-              >
-                حذف
-              </DeleteButton>
-              <img className="h-full" src={breed.image} alt={breed.title} />
+              <div className="flex items-center justify-center">
+                <DeleteButton
+                  _id={breed._id}
+                  onDelete={deleteBreed}
+                  className="py-2"
+                >
+                  حذف
+                </DeleteButton>
+              </div>
+              <img
+                className="h-full mr-auto"
+                src={breed.image}
+                alt={breed.title}
+              />
             </li>
           ))}
         </ul>
