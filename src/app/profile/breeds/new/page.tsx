@@ -3,6 +3,7 @@
 import GlobalForm from "@/components/medium/GlobalForm";
 import TextBox from "@/components/small/TextBox";
 import { AppContext } from "@/context/app";
+import { inputStateDefaultValue, InputStateType } from "@/types/entities";
 import {
   isImage,
   maxLength,
@@ -16,15 +17,9 @@ import { toast, ToastContainer } from "react-toastify";
 export default function NewBreed() {
   const context = useContext(AppContext);
 
-  const [title, setTitle] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [title, setTitle] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [image, setImage] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [image, setImage] = useState<InputStateType>(inputStateDefaultValue);
 
   const [isFormValid, setIsFormValid] = useState(false);
   const [loading, setLoading] = useState(false);

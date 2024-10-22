@@ -6,7 +6,7 @@ interface GlobalFormProps {
   isFormValid: boolean;
   loading: boolean;
   children: ReactNode;
-  topOfFromChildren?: ReactNode;
+  topOfFormChildren?: ReactNode;
 }
 
 export default function GlobalForm({
@@ -14,7 +14,7 @@ export default function GlobalForm({
   isFormValid,
   loading,
   children,
-  topOfFromChildren,
+  topOfFormChildren,
   title,
 }: GlobalFormProps) {
   return (
@@ -29,7 +29,7 @@ export default function GlobalForm({
       >
         {title}
       </h1>
-      {topOfFromChildren}
+      {topOfFormChildren}
       <form className="w-full flex flex-col gap-y-2" onSubmit={formSubmit}>
         {children}
         <button

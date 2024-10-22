@@ -5,6 +5,7 @@ import GlobalForm from "@/components/medium/GlobalForm";
 import TextBox from "@/components/small/TextBox";
 import { AppContext } from "@/context/app";
 import { register } from "@/lib/auth";
+import { inputStateDefaultValue, InputStateType } from "@/types/entities";
 import {
   fieldCount,
   isEmail,
@@ -21,31 +22,16 @@ import { MdMail } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function Register() {
-  const [name, setName] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [name, setName] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [phone, setPhone] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [phone, setPhone] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [email, setEmail] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [email, setEmail] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [password, setPassword] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [password, setPassword] = useState<InputStateType>(inputStateDefaultValue);
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-  const [rePassword, setRePassword] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [rePassword, setRePassword] = useState<InputStateType>(inputStateDefaultValue);
 
   const [isRePasswordHidden, setIsRePasswordHidden] = useState(true);
 
@@ -111,7 +97,7 @@ export default function Register() {
           isFormValid={isFormValid}
           loading={loading}
           title="فرم ثبت نام"
-          topOfFromChildren={
+          topOfFormChildren={
             <div className="text-lg">
               <span>قبلا ثبت نام کرده‌اید؟</span>{" "}
               <a className="text-mainPurple" href="/login">

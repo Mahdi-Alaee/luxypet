@@ -4,6 +4,7 @@ import GlobalForm from "@/components/medium/GlobalForm";
 import TextBox from "@/components/small/TextBox";
 import { AppContext } from "@/context/app";
 import { User } from "@/types/auth";
+import { inputStateDefaultValue, InputStateType } from "@/types/entities";
 import {
   fieldCount,
   isEmail,
@@ -24,31 +25,22 @@ export default function EditUser() {
 
   const { _id } = useParams();
 
-  const [name, setName] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [name, setName] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [phone, setPhone] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [phone, setPhone] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [email, setEmail] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [email, setEmail] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [password, setPassword] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: true });
+  const [password, setPassword] = useState<InputStateType>({
+    value: "",
+    isValid: true,
+  });
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-  const [rePassword, setRePassword] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: true });
+  const [rePassword, setRePassword] = useState<InputStateType>({
+    value: "",
+    isValid: true,
+  });
   const [isRePasswordHidden, setIsRePasswordHidden] = useState(true);
 
   const [isAdmin, setIsAdmin] = useState(false);

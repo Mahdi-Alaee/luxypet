@@ -15,17 +15,14 @@ import { useRouter } from "next/navigation";
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaPhoneAlt } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
+import { inputStateDefaultValue, InputStateType } from "@/types/entities";
 
 export default function Login() {
-  const [phone, setPhone] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ isValid: undefined, value: "" });
+  const [phone, setPhone] = useState<InputStateType>(inputStateDefaultValue);
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-  const [password, setPassword] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ isValid: undefined, value: "" });
+  const [password, setPassword] = useState<InputStateType>(
+    inputStateDefaultValue
+  );
   const [isFormValid, setIsFormValid] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -68,7 +65,7 @@ export default function Login() {
           isFormValid={isFormValid}
           loading={loading}
           title="فرم ورود"
-          topOfFromChildren={
+          topOfFormChildren={
             <div className="text-lg">
               <span>قبلا ثبت نام کرده‌اید؟</span>{" "}
               <a className="text-mainPurple" href="/login">

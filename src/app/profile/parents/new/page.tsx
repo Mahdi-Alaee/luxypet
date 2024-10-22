@@ -3,6 +3,7 @@
 import GlobalForm from "@/components/medium/GlobalForm";
 import TextBox from "@/components/small/TextBox";
 import { AppContext } from "@/context/app";
+import { inputStateDefaultValue, InputStateType } from "@/types/entities";
 import {
   isImage,
   maxLength,
@@ -16,15 +17,9 @@ import { toast, ToastContainer } from "react-toastify";
 export default function NewParent() {
   const context = useContext(AppContext);
 
-  const [name, setName] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [name, setName] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [image, setImage] = useState<{
-    value: string;
-    isValid: undefined | boolean;
-  }>({ value: "", isValid: undefined });
+  const [image, setImage] = useState<InputStateType>(inputStateDefaultValue);
 
   const [isFormValid, setIsFormValid] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -55,7 +50,7 @@ export default function NewParent() {
       setName({ isValid: undefined, value: "" });
       setImage({ isValid: undefined, value: "" });
       setTimeout(() => {
-        router.push('/profile/parents')
+        router.push("/profile/parents");
       }, 1000);
     } else toast.error(data.error);
     setLoading(false);
