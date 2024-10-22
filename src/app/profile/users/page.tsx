@@ -1,18 +1,14 @@
 "use client";
 
 import DeleteButton from "@/components/small/DeleteButton";
-import { AppContext } from "@/context/app";
 import { User } from "@/types/auth";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const context = useContext(AppContext);
 
   useEffect(() => {
     getUsers();
@@ -41,9 +37,7 @@ export default function Users() {
     }
   };
 
-  if (loading || context?.loading)
-    return <p className="text-center text-2xl mt-12">loading ...</p>;
-  else if (!context?.user?.isAdmin) redirect("/");
+  if (loading) return <p className="text-center text-2xl mt-12">loading ...</p>;
   return (
     <div className="mt-8">
       {/* list of users */}

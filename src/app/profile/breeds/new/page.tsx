@@ -2,7 +2,6 @@
 
 import GlobalForm from "@/components/medium/GlobalForm";
 import TextBox from "@/components/small/TextBox";
-import { AppContext } from "@/context/app";
 import { inputStateDefaultValue, InputStateType } from "@/types/entities";
 import {
   isImage,
@@ -11,12 +10,10 @@ import {
   required,
 } from "@/validation/inputs/validation-rules";
 import { useRouter } from "next/navigation";
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function NewBreed() {
-  const context = useContext(AppContext);
-
   const [title, setTitle] = useState<InputStateType>(inputStateDefaultValue);
 
   const [image, setImage] = useState<InputStateType>(inputStateDefaultValue);
@@ -55,10 +52,6 @@ export default function NewBreed() {
     } else toast.error(data.error);
     setLoading(false);
   };
-
-  if (context?.loading) {
-    return <p className="text-3xl mt-12 text-center">Loading ...</p>;
-  } else if (!context?.user) router.replace("/");
   return (
     <div className="pt-8 max-w-lg mx-auto">
       <GlobalForm

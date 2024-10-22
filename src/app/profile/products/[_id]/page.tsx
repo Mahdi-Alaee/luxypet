@@ -1,7 +1,6 @@
 "use client";
 
 import ProductFrom from "@/components/medium/ProductForm";
-import { AppContext } from "@/context/app";
 import {
   Breed,
   inputStateDefaultValue,
@@ -9,11 +8,10 @@ import {
   InputStateType,
 } from "@/types/entities";
 import { useParams, useRouter } from "next/navigation";
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function Newproduct() {
-  const context = useContext(AppContext);
   const { _id } = useParams();
 
   const [title, setTitle] = useState<InputStateType>(inputStateDefaultValue);
@@ -78,8 +76,10 @@ export default function Newproduct() {
       setTimeout(() => {
         router.push("/profile/products");
       }, 1000);
-    } else toast.error(data.error);
-    setLoading(false);
+    } else {
+      setLoading(false);
+      toast.error(data.error);
+    }
   };
 
   const loadProduct = async () => {
@@ -88,8 +88,8 @@ export default function Newproduct() {
     ).json();
     if (res.ok) {
       const product = res.data;
-      console.log({product});
-      
+      console.log({ product });
+
       setTitle({ isValid: true, value: product.title });
       setCode({ isValid: true, value: product.code });
       setPrice({ isValid: true, value: product.price });
@@ -103,9 +103,6 @@ export default function Newproduct() {
     }
   };
 
-  if (context?.loading) {
-    return <p className="text-3xl mt-12 text-center">Loading ...</p>;
-  } else if (!context?.user) router.replace("/");
   return (
     <div className="pt-8 max-w-lg mx-auto">
       <ProductFrom

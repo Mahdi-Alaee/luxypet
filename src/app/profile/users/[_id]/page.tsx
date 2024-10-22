@@ -14,7 +14,7 @@ import {
   required,
   theSameAs,
 } from "@/validation/inputs/validation-rules";
-import { redirect, useParams, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaPhoneAlt, FaUser } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
@@ -112,9 +112,6 @@ export default function EditUser() {
     setLoading(false);
   };
 
-  if (context?.loading) {
-    return <p className="text-3xl mt-12 text-center">Loading ...</p>;
-  } else if (!context?.user?.isAdmin) redirect("/");
   return (
     <div className="pt-8 max-w-lg mx-auto">
       <GlobalForm

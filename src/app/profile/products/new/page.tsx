@@ -1,7 +1,6 @@
 "use client";
 
 import ProductFrom from "@/components/medium/ProductForm";
-import { AppContext } from "@/context/app";
 import {
   Breed,
   inputStateDefaultValue,
@@ -9,11 +8,10 @@ import {
   InputStateType,
 } from "@/types/entities";
 import { useRouter } from "next/navigation";
-import { FormEvent, useContext, useState } from "react";
+import { FormEvent, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function Newproduct() {
-  const context = useContext(AppContext);
 
   const [title, setTitle] = useState<InputStateType>(inputStateDefaultValue);
 
@@ -75,10 +73,7 @@ export default function Newproduct() {
     } else toast.error(data.error);
     setLoading(false);
   };
-
-  if (context?.loading) {
-    return <p className="text-3xl mt-12 text-center">Loading ...</p>;
-  } else if (!context?.user) router.replace("/");
+  
   return (
     <div className="pt-8 max-w-lg mx-auto">
       <ProductFrom
