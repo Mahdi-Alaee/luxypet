@@ -14,9 +14,12 @@ export default function ProductBox({ title, image, price, code }: Product) {
         />
       </Link>
       {/* title */}
-      <h4 className="text-xl my-3 mx-3 font-bold cursor-pointer duration-200 group-hover:text-mainPurple">
+      <Link
+        href={"/product/" + code}
+        className="block text-xl my-3 mx-3 font-bold cursor-pointer duration-200 group-hover:text-mainPurple"
+      >
         {title}
-      </h4>
+      </Link>
       {/* price */}
       <p className="text-lg mb-3 mx-3">{price.toLocaleString()} تومان</p>
     </div>

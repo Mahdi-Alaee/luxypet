@@ -6,16 +6,17 @@ export async function GET(req: NextRequest) {
   try {
     const url = new URL(req.url);
     const id = url.searchParams.get("_id");
+    const code = url.searchParams.get("code");
     await connectDB();
-    if (!id) {
-      const products = await ProductModel.find();
-      console.log({ products });
-      return Response.json({ ok: true, data: products });
+    let res = null;
+    if (id) {
+      res = await ProductModel.findById(id);
+    } else if (code) {
+      res = await ProductModel.findOne({ code });
     } else {
-      const product = await ProductModel.findById(id);
-      console.log({ product });
-      return Response.json({ ok: true, data: product });
+      res = await ProductModel.find();
     }
+    return Response.json({ ok: !!res, data: res });
   } catch (error) {
     return Response.json({ ok: false, error });
   }
