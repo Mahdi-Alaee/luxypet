@@ -10,7 +10,7 @@ const ProductSchema = new Schema(
     father: { type: String, required: true },
     mother: { type: String, required: true },
     sex: { type: String, required: true },
-    code: { type: String, required: true },
+    code: { type: String, required: true, unique: true },
     breed: { type: String, required: true },
   },
   { timestamps: true }

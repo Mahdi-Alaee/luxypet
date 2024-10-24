@@ -6,7 +6,6 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    console.log({ body });
     await connectDB();
     const res = await BreedModel.create({ ...body });
     return Response.json({ ok: true, res });
