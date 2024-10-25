@@ -41,4 +41,6 @@ export interface Product {
   sex: "male" | "female";
   code: string;
   breed: string;
+  createdAt?:string
+
 }

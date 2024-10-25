@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import ProductBox from "../small/ProductBox";
 import SectionTitle from "../small/SectionTitle";
 import { Product } from "@/types/entities";
+import Link from "next/link";
 
 // export const dynamic = "force-dynamic";
 
@@ -37,6 +38,8 @@ export default function LatestPuppies() {
           <ProductBox key={product._id} {...product} />
         ))}
       </div>
+
+      <Link href="/products" className='btn-purple w-max mx-auto mt-12 block'>مشاهده تمام محصولات</Link>
     </section>
   );
 }

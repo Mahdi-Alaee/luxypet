@@ -116,3 +116,10 @@ body{
     transition: all .5s cubic-bezier(0.5, -0.6, 0.19, 1);
 }
 /** finish Menu Button */
+
+
+/** start helper classes */
+.btn-purple{
+    @apply bg-mainPurple text-white p-4 font-bold text-lg rounded-md duration-150 hover:bg-white hover:text-mainPurple
+}
+/** finish helper classes */
