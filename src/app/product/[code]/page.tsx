@@ -1,4 +1,5 @@
 "use client";
+import BuyProductModal from "@/components/medium/BuyProductModal";
 import { calculateAge, convertGregorianToJalali } from "@/lib/utils";
 import { Product } from "@/types/entities";
 /* eslint-disable @next/next/no-img-element */
@@ -10,6 +11,7 @@ export default function ProductPage() {
   const { code } = useParams();
   const [product, setProduct] = useState<Product>();
   const [loading, setLoading] = useState(true);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   useEffect(() => {
     getProduct();
@@ -38,7 +40,7 @@ export default function ProductPage() {
         </h1>
 
         {/* buy button */}
-        <button className="btn-purple">
+        <button onClick={() => setIsOpenModal(true)} className="btn-purple">
           خرید محصول
         </button>
       </section>
@@ -90,6 +92,11 @@ export default function ProductPage() {
         {/* video */}
         <video controls src={product?.video}></video>
       </section>
+      <BuyProductModal
+        code={code as string}
+        isOpenModal={isOpenModal}
+        setIsOpenModal={setIsOpenModal}
+      />
     </main>
   );
 }
