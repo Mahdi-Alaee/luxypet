@@ -90,7 +90,13 @@ export default function ProductPage() {
         {/* title */}
         <h2 className="text-2xl mb-4">ویدئو</h2>
         {/* video */}
-        <video controls src={product?.video}></video>
+        <div className="h_iframe-aparat_embed_frame">
+          <span style={{ display: "block", paddingTop: "57%" }}></span>
+          <iframe
+            src={`https://www.aparat.com/video/video/embed/videohash/${product?.video}/vt/frame`}
+            allowFullScreen={true}
+          ></iframe>
+        </div>
       </section>
       <BuyProductModal
         code={code as string}

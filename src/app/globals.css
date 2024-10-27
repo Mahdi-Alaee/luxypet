@@ -1,13 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body{
+body {
     direction: rtl;
 }
-
 /** start fonts */
-
 @font-face {
     font-family: vazir;
     src:
@@ -43,9 +40,7 @@ body{
         url(/fonts/Vazir-Thin.eot) format(opentype),
         url(/fonts/Vazir-Thin.woff) format(woff);
 }
-
 /** finish fonts */
-
 /** start Menu Button */
 .btn-menu {
     width: 50px;
@@ -116,10 +111,29 @@ body{
     transition: all .5s cubic-bezier(0.5, -0.6, 0.19, 1);
 }
 /** finish Menu Button */
-
-
 /** start helper classes */
-.btn-purple{
+.btn-purple {
     @apply bg-mainPurple text-white p-4 font-bold text-lg rounded-md duration-150 hover:bg-white hover:text-mainPurple
 }
 /** finish helper classes */
+/** start aparat classes */
+.h_iframe-aparat_embed_frame {
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    width: 100%;
+    height: 100%;
+}
+.h_iframe-aparat_embed_frame .ratio {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.h_iframe-aparat_embed_frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/** finish aparat classes */
