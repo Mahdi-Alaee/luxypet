@@ -28,7 +28,7 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
         <li>
           <Link
             className="flex justify-center gap-x-1"
-            href="#"
+            href="/products"
             onClick={() => setIsMenuOpen(false)}
           >
             <TbDog className="text-3xl" /> توله ها

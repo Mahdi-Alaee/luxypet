@@ -7,6 +7,8 @@ import MobileMenu from "../medium/MobileMenu";
 import Image from "next/image";
 import { AppContext } from "@/context/app";
 import { FaUser } from "react-icons/fa";
+import { TbDog } from "react-icons/tb";
+import { MdContacts, MdOutlineArticle, MdOutlineCorporateFare, MdSentimentSatisfiedAlt } from "react-icons/md";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,19 +51,19 @@ export default function Header() {
         <nav className="hidden md:block">
           <ul className="flex text-gray-100 gap-x-8 text-lg">
             <li>
-              <Link href="#">توله ها</Link>
+              <Link className="flex gap-x-2" href="/products"><TbDog className="text-3xl" /> توله ها</Link>
             </li>
             <li>
-              <Link href="#">رضایت مشتری</Link>
+              <Link className="flex gap-x-2" href="#"><MdSentimentSatisfiedAlt className="text-3xl" /> رضایت مشتری</Link>
             </li>
             <li>
-              <Link href="#">درباره ما</Link>
+              <Link className="flex gap-x-2" href="#"><MdOutlineCorporateFare className="text-3xl" /> درباره ما</Link>
             </li>
             <li>
-              <Link href="#">ارتباط با ما</Link>
+              <Link className="flex gap-x-2" href="#"><MdContacts className="text-3xl" /> ارتباط با ما</Link>
             </li>
             <li>
-              <Link href="#">مقالات آموزشی</Link>
+              <Link className="flex gap-x-2" href="#"><MdOutlineArticle className="text-3xl" /> مقالات آموزشی</Link>
             </li>
           </ul>
         </nav>

@@ -29,13 +29,22 @@ export default function Profile() {
 
   const [email, setEmail] = useState<InputStateType>(inputStateDefaultValue);
 
-  const [currentPassword, setCurrentPassword] = useState<InputStateType>({ value: "", isValid: true });
+  const [currentPassword, setCurrentPassword] = useState<InputStateType>({
+    value: "",
+    isValid: true,
+  });
   const [isCurrentPasswordHidden, setIsCurrentPasswordHidden] = useState(true);
 
-  const [password, setPassword] = useState<InputStateType>({ value: "", isValid: true });
+  const [password, setPassword] = useState<InputStateType>({
+    value: "",
+    isValid: true,
+  });
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-  const [rePassword, setRePassword] = useState<InputStateType>({ value: "", isValid: true });
+  const [rePassword, setRePassword] = useState<InputStateType>({
+    value: "",
+    isValid: true,
+  });
   const [isRePasswordHidden, setIsRePasswordHidden] = useState(true);
 
   const [isFormValid, setIsFormValid] = useState(false);
