@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "swiper/swiper-bundle.css";
 import "./globals.css";
 import Providers from "@/components/large/Providers";
+import Footer from "@/components/large/Footer";
 
 export default async function RootLayout({
   children,
@@ -11,15 +12,12 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-bgColor">
+      <body className="bg-bgColor min-h-screen">
         <Providers>
           <Header />
           {children}
+          <Footer />
         </Providers>
-        <br />
-        <br />
-        <br />
-        <br />
       </body>
     </html>
   );

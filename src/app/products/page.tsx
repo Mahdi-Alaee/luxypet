@@ -23,7 +23,7 @@ export default function Products() {
   return (
     <main>
       <h1 className="text-mainPurple text-3xl mt-10 mb-6 font-bold text-center">تمام محصولات</h1>
-      <div className="grid grid-cols-3 gap-4 mt-4 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 gap-4 mt-4 max-w-7xl px-6 mx-auto sm:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <ProductBox key={product._id} {...product} />
         ))}

@@ -30,7 +30,7 @@ export default function LatestPuppies() {
   // console.log(res);
 
   return (
-    <section className="mt-10">
+    <section className="mt-">
       <SectionTitle text="جدیدترین توله ها" />
 
       <div className="grid grid-cols-3 gap-4 mt-4 max-w-7xl mx-auto">
@@ -39,7 +39,7 @@ export default function LatestPuppies() {
         ))}
       </div>
 
-      <Link href="/products" className='btn-purple w-max mx-auto mt-12 block'>مشاهده تمام محصولات</Link>
+      <Link href="/products" className='text-mainPurple bg-gray-200 p-4 font-bold text-lg rounded-md duration-150 hover:text-gray-200 hover:bg-mainPurple w-max mx-auto mt-12 block'>مشاهده تمام محصولات</Link>
     </section>
   );
 }

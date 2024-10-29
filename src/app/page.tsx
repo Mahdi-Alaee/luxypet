@@ -9,12 +9,6 @@ export default async function Home() {
     <main>
       <HeroSection />
       <LatestPuppies />
-
-
-      <br /><br /><br /><br /><br /><br />
-      <br /><br /><br /><br /><br /><br />
-      <br /><br /><br /><br /><br /><br />
-      <br /><br /><br /><br /><br /><br />
     </main>
   );
 }
