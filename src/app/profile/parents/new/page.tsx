@@ -38,7 +38,7 @@ export default function NewParent() {
       },
       body: JSON.stringify({
         name: name.value,
-        image: "/images/parents/" + image.value,
+        image: image.value,
       }),
     });
     const data = await res.json();

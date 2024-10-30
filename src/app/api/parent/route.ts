@@ -15,10 +15,15 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
+    const url = new URL(req.url);
+    const id = url.searchParams.get("_id");
+    let data = null;
     await connectDB();
-    const data = await ParentModel.find();
+    if (id) {
+      data = await ParentModel.findById(id);
+    } else data = await ParentModel.find();
     return Response.json({ ok: true, data });
   } catch (error) {
     console.log(error);

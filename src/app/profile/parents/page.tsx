@@ -67,7 +67,7 @@ export default function Parents() {
             </div>
             <img
               className="h-full mr-auto"
-              src={parent.image}
+              src={'/images/parents/'+parent.image}
               alt={parent.name}
             />
           </li>

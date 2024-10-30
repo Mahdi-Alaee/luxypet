@@ -2,7 +2,7 @@
 import Loading from "@/app/loading";
 import BuyProductModal from "@/components/medium/BuyProductModal";
 import { calculateAge, convertGregorianToJalali } from "@/lib/utils";
-import { Product } from "@/types/entities";
+import { Parent, Product } from "@/types/entities";
 /* eslint-disable @next/next/no-img-element */
 
 import { useParams } from "next/navigation";
@@ -13,6 +13,8 @@ export default function ProductPage() {
   const [product, setProduct] = useState<Product>();
   const [loading, setLoading] = useState(true);
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [mother, setMother] = useState<Parent>();
+  const [father, setFather] = useState<Parent>();
 
   useEffect(() => {
     getProduct();
@@ -23,11 +25,24 @@ export default function ProductPage() {
       await fetch("http://localhost:3000/api/product?code=" + code)
     ).json();
     if (res.ok) {
-      const product = res.data;
-      console.log({ product });
-      setProduct(product);
-      setLoading(false);
+      const productData = res.data as Product;
+      console.log({ productData });
+      setProduct(productData);
+      const motherRes = await (
+        await fetch(
+          "http://localhost:3000/api/parent?_id=" + productData.mother
+        )
+      ).json();
+      const fatherRes = await (
+        await fetch(
+          "http://localhost:3000/api/parent?_id=" + productData.father
+        )
+      ).json();
+      setMother(motherRes.data);
+      setFather(fatherRes.data);
+      console.log({ motherRes, fatherRes });
     }
+    setLoading(false);
   };
 
   if (loading) return <Loading />;
@@ -97,6 +112,31 @@ export default function ProductPage() {
             src={`https://www.aparat.com/video/video/embed/videohash/${product?.video}/vt/frame`}
             allowFullScreen={true}
           ></iframe>
+        </div>
+      </section>
+      <section className="box py-8 px-4 mt-4">
+        {/* title */}
+        <h2 className="text-2xl mb-4 text-center">مولدین</h2>
+        {/* parents */}
+        <div className="grid grid-cols-2 w-full max-h-[600px]">
+          {/* پدر */}
+          <div className="">
+            <h3 className="text-center mb-8 text-4xl">پدر</h3>
+            <img
+              className="mx-auto max-h-96 object-contain"
+              src={`/images/parents/${father?.image}`}
+              alt=""
+            />
+          </div>
+          {/* مادر */}
+          <div className="">
+            <h3 className="text-center mb-8 text-4xl">مادر</h3>
+            <img
+              className="mx-auto max-h-96 object-contain"
+              src={`/images/parents/${mother?.image}`}
+              alt=""
+            />
+          </div>
         </div>
       </section>
       <BuyProductModal
