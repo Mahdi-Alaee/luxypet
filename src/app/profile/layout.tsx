@@ -4,6 +4,7 @@ import UserTabs from "@/components/medium/UserTabs";
 import { AppContext } from "@/context/app";
 import { redirect, usePathname } from "next/navigation";
 import { useContext } from "react";
+import Loading from "../loading";
 
 export default function RootLayout({
   children,
@@ -14,12 +15,12 @@ export default function RootLayout({
   const pathname = usePathname();
 
   if (context?.loading)
-    return <p className="text-center text-2xl mt-12">loading ...</p>;
+    return <Loading />;
   else if (!context?.user) redirect("/login");
   else if (pathname !== "/profile" && !context?.user?.isAdmin)
     redirect("/profile");
   return (
-    <main className="max-w-3xl mx-auto pt-12">
+    <main className="max-w-3xl mx-auto pt-12 min-h-[40vh] mb-12">
       <UserTabs />
 
       {children}

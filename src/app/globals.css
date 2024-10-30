@@ -115,6 +115,9 @@ body {
 .btn-purple {
     @apply bg-mainPurple text-white p-4 font-bold text-lg rounded-md duration-150 hover:bg-white hover:text-mainPurple
 }
+.box {
+    @apply bg-gray-300 shadow rounded-lg
+}
 /** finish helper classes */
 /** start aparat classes */
 .h_iframe-aparat_embed_frame {

@@ -1,4 +1,5 @@
 "use client";
+import Loading from "@/app/loading";
 import BuyProductModal from "@/components/medium/BuyProductModal";
 import { calculateAge, convertGregorianToJalali } from "@/lib/utils";
 import { Product } from "@/types/entities";
@@ -29,11 +30,11 @@ export default function ProductPage() {
     }
   };
 
-  if (loading) return <p className="text-center text-2xl mt-12">loading ...</p>;
+  if (loading) return <Loading />;
   return (
     <main className="max-w-[1600px] px-6 mx-auto mt-4">
       {/* title container */}
-      <section className="flex justify-between bg-gray-300 shadow py-8 px-4">
+      <section className="flex justify-between box py-8 px-4">
         {/* title */}
         <h1 className="text-2xl font-bold">
           {product?.title} - {product?.code}
@@ -45,7 +46,7 @@ export default function ProductPage() {
         </button>
       </section>
       {/* main content */}
-      <section className="bg-gray-300 shadow py-8 px-4 mt-4 grid grid-cols-2">
+      <section className="box py-8 px-4 mt-4 grid grid-cols-2">
         {/* right image */}
         <img src="/images/products/presa-1.jpg" alt="" />
 
@@ -86,7 +87,7 @@ export default function ProductPage() {
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center bg-gray-300 shadow py-8 px-4 mt-4">
+      <section className="flex flex-col items-center box py-8 px-4 mt-4">
         {/* title */}
         <h2 className="text-2xl mb-4">ویدئو</h2>
         {/* video */}

@@ -3,3 +3,5 @@
 3. Product page
 4. home page
 5. footer
+6. contact us
+7. about us

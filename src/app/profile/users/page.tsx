@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@/app/loading";
 import DeleteButton from "@/components/small/DeleteButton";
 import { User } from "@/types/auth";
 import Link from "next/link";
@@ -37,7 +38,7 @@ export default function Users() {
     }
   };
 
-  if (loading) return <p className="text-center text-2xl mt-12">loading ...</p>;
+  if (loading) return <Loading />;
   return (
     <div className="mt-8">
       {/* list of users */}

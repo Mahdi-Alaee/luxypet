@@ -30,7 +30,7 @@ export default function LatestPuppies() {
   // console.log(res);
 
   return (
-    <section className="mt-">
+    <section className="mb-12">
       <SectionTitle text="جدیدترین توله ها" />
 
       <div className="grid grid-cols-3 gap-4 mt-4 max-w-7xl mx-auto">

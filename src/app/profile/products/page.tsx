@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@/app/loading";
 import DeleteButton from "@/components/small/DeleteButton";
 /* eslint-disable @next/next/no-img-element */
 import NavigateButton from "@/components/small/NavigateButton";
@@ -40,7 +41,7 @@ export default function Products() {
     }
   };
 
-  if (loading) return <p className="text-center text-2xl mt-12">loading ...</p>;
+  if (loading) return <Loading />;
   return (
     <div className="mt-8">
       <NavigateButton href="/profile/products/new" icon="left">

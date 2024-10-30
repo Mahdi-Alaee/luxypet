@@ -19,6 +19,7 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaPhoneAlt, FaUser } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
+import Loading from "../loading";
 
 export default function Profile() {
   const context = useContext(AppContext);
@@ -112,7 +113,7 @@ export default function Profile() {
   };
 
   if (context?.loading) {
-    return <p className="text-3xl mt-12 text-center">Loading ...</p>;
+    return <Loading />;
   } else if (!context?.user) router.replace("/");
   return (
     <div className="pt-8 max-w-lg mx-auto">

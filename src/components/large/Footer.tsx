@@ -6,7 +6,7 @@ import { MdMail } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <footer className="bg-mainPurple mt-40">
+    <footer className="bg-mainPurple">
       {/* container */}
       <div className="max-w-7xl mx-auto py-16 px-8">
         {/* footer top */}
