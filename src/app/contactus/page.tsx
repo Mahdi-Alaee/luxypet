@@ -1,31 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
 import { BsTelephone } from "react-icons/bs";
 
-interface BuyProductModalProps {
-  isOpenModal: boolean;
-  setIsOpenModal: Dispatch<SetStateAction<boolean>>;
-  code: string;
-}
-
-export default function BuyProductModal({
-  isOpenModal,
-  setIsOpenModal,
-  code,
-}: BuyProductModalProps) {
+export default function ContactUs() {
   return (
-    <div
-      className={`fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black/80 transition-opacity duration-75 ${
-        isOpenModal ? "z-50 opacity-100" : "-z-50 opacity-0"
-      }`}
-      onClick={() => setIsOpenModal(false)}
-    >
-      <div className="bg-white p-6" onClick={(e) => e.stopPropagation()}>
-        {/* modal box */}
+    <main className="max-w-7xl mx-auto flex flex-col gap-y-2 my-2 min-h-[50vh]">
+      <h1 className="box p-4 text-center text-4xl font-bold">ارتباط باما</h1>
+      {/* content */}
+      <div className="box p-4 text-center text-xl flex flex-col gap-y-3">
         <h2 className="text-3xl text-center font-bold">
-          جهت خرید کد محصول ({code}) را به واتساپ یا تلگرام ارسال کنید و یا تماس
-          بگیرید
+          جهت خرید کد محصول را به واتساپ یا تلگرام ارسال کنید و یا تماس بگیرید
         </h2>
         <Link
           href="tel:+989334318411"
@@ -36,9 +20,7 @@ export default function BuyProductModal({
         </Link>
         <div className="flex gap-x-10 justify-center pt-6">
           <Link
-            href={
-              "https://api.whatsapp.com/send?phone=09334318411&text=" + code
-            }
+            href={"https://api.whatsapp.com/send?phone=09334318411"}
             className="w-32 flex flex-col items-center"
             target="_blank"
           >
@@ -53,8 +35,20 @@ export default function BuyProductModal({
             <img src="/images/telegram.png" alt="telegram icon" />
             <p className="mt-2 text-blue-500">Telegram</p>
           </Link>
+          <Link
+            href="https://www.instagram.com/luxypet.ir/"
+            className="w-32 flex flex-col items-center"
+            target="_blank"
+          >
+            <img
+              className="scale-90"
+              src="/images/instagram.png"
+              alt="instagram icon"
+            />
+            <p className="mt-2 text-blue-500">Instagram</p>
+          </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -35,13 +35,13 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
           </Link>
         </li>
         <li>
-          <Link
+          {/* <Link
             className="flex justify-center gap-x-1"
             href="#"
             onClick={() => setIsMenuOpen(false)}
           >
             <MdSentimentSatisfiedAlt className="text-3xl" /> رضایت مشتری
-          </Link>
+          </Link> */}
         </li>
         <li>
           <Link
@@ -62,13 +62,13 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
           </Link>
         </li>
         <li>
-          <Link
+          {/* <Link
             className="flex justify-center gap-x-1"
             href="#"
             onClick={() => setIsMenuOpen(false)}
           >
             <MdOutlineArticle className="text-3xl" /> مقالات
-          </Link>
+          </Link> */}
         </li>
       </ul>
       {/* sign buttons */}

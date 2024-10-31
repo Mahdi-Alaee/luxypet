@@ -8,7 +8,7 @@ import Image from "next/image";
 import { AppContext } from "@/context/app";
 import { FaUser } from "react-icons/fa";
 import { TbDog } from "react-icons/tb";
-import { MdContacts, MdOutlineArticle, MdOutlineCorporateFare, MdSentimentSatisfiedAlt } from "react-icons/md";
+import { MdContacts, MdOutlineCorporateFare } from "react-icons/md";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,18 +53,18 @@ export default function Header() {
             <li>
               <Link className="flex gap-x-2" href="/products"><TbDog className="text-3xl" /> توله ها</Link>
             </li>
-            <li>
+            {/* <li>
               <Link className="flex gap-x-2" href="#"><MdSentimentSatisfiedAlt className="text-3xl" /> رضایت مشتری</Link>
-            </li>
+            </li> */}
             <li>
               <Link className="flex gap-x-2" href="/aboutus"><MdOutlineCorporateFare className="text-3xl" /> درباره ما</Link>
             </li>
             <li>
               <Link className="flex gap-x-2" href="/contactus"><MdContacts className="text-3xl" /> ارتباط با ما</Link>
             </li>
-            <li>
+            {/* <li>
               <Link className="flex gap-x-2" href="#"><MdOutlineArticle className="text-3xl" /> مقالات آموزشی</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
 
