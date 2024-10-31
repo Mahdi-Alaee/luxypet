@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@/app/loading";
 import ProductFrom from "@/components/medium/ProductForm";
 import {
   Breed,
@@ -40,6 +41,7 @@ export default function Newproduct() {
   const [breeds, setBreeds] = useState<Breed[]>([]);
 
   const [loading, setLoading] = useState(false);
+  const [productLoading, setProductLoading] = useState(true);
 
   const router = useRouter();
 
@@ -101,14 +103,14 @@ export default function Newproduct() {
       setSex({ isValid: true, value: product.sex });
       setBreed({ isValid: true, value: product.breed });
     }
+    setProductLoading(false);
   };
-
+  if (productLoading) return <Loading />;
   return (
     <div className="pt-8 max-w-lg mx-auto">
       <ProductFrom
         formSubmit={formSubmit}
         loading={loading}
-        // setLoading={setLoading}
         breeds={breeds}
         setBreeds={setBreeds}
         parents={parents}

@@ -26,7 +26,6 @@ import {
 interface ProductFromProps {
   formSubmit: (e: FormEvent<HTMLFormElement>) => void;
   loading: boolean;
-  //   setLoading: Dispatch<SetStateAction<boolean>>;
   breeds: Breed[];
   setBreeds: Dispatch<SetStateAction<Breed[]>>;
   parents: Parent[];
@@ -57,7 +56,6 @@ interface ProductFromProps {
 export default function ProductFrom({
   formSubmit,
   loading,
-  //   setLoading,
   breeds,
   setBreeds,
   parents,

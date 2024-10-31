@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@/app/loading";
 import GlobalForm from "@/components/medium/GlobalForm";
 import TextBox from "@/components/small/TextBox";
 import { AppContext } from "@/context/app";
@@ -47,6 +48,7 @@ export default function EditUser() {
 
   const [isFormValid, setIsFormValid] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loadingUser, setLoadingUser] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -68,6 +70,7 @@ export default function EditUser() {
       await fetch("http://localhost:3000/api/user?_id=" + _id)
     ).json()) as User;
 
+    setLoadingUser(false);
     setName({ isValid: true, value: user.name });
     setEmail({ isValid: true, value: user.email });
     setPhone({ isValid: true, value: user.phone });
@@ -112,6 +115,7 @@ export default function EditUser() {
     setLoading(false);
   };
 
+  if (loadingUser) return <Loading />;
   return (
     <div className="pt-8 max-w-lg mx-auto">
       <GlobalForm
