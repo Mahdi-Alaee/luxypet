@@ -46,7 +46,7 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
         <li>
           <Link
             className="flex justify-center gap-x-1"
-            href="#"
+            href="/aboutus"
             onClick={() => setIsMenuOpen(false)}
           >
             <MdOutlineCorporateFare className="text-3xl" /> درباره ما
@@ -55,7 +55,7 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
         <li>
           <Link
             className="flex justify-center gap-x-1"
-            href="#"
+            href="/contactus"
             onClick={() => setIsMenuOpen(false)}
           >
             <MdContacts className="text-3xl" /> ارتباط با ما

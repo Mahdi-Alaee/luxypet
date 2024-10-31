@@ -57,10 +57,10 @@ export default function Header() {
               <Link className="flex gap-x-2" href="#"><MdSentimentSatisfiedAlt className="text-3xl" /> رضایت مشتری</Link>
             </li>
             <li>
-              <Link className="flex gap-x-2" href="#"><MdOutlineCorporateFare className="text-3xl" /> درباره ما</Link>
+              <Link className="flex gap-x-2" href="/aboutus"><MdOutlineCorporateFare className="text-3xl" /> درباره ما</Link>
             </li>
             <li>
-              <Link className="flex gap-x-2" href="#"><MdContacts className="text-3xl" /> ارتباط با ما</Link>
+              <Link className="flex gap-x-2" href="/contactus"><MdContacts className="text-3xl" /> ارتباط با ما</Link>
             </li>
             <li>
               <Link className="flex gap-x-2" href="#"><MdOutlineArticle className="text-3xl" /> مقالات آموزشی</Link>
