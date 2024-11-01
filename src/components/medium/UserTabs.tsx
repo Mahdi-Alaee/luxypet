@@ -15,7 +15,7 @@ export default function UserTabs() {
 
 
   return (
-    <div className="flex gap-x-3 justify-center">
+    <div className="flex gap-3 justify-center flex-wrap">
       {usertabs.map(({ id, href, title, isProtected }) => {
         if (isProtected) {
           return context?.user?.isAdmin ? (

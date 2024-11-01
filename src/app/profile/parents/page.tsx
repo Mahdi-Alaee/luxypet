@@ -52,7 +52,7 @@ export default function Parents() {
         <ul className="flex flex-col gap-y-2 mt-6">
           {parents.map((parent: Parent) => (
             <li
-            className="grid grid-cols-3 grid-rows-1 bg-gray-100 h-20"
+            className="grid grid-cols-3 grid-rows-1 bg-gray-100 h-24"
             key={parent._id}
           >
             <span className="my-auto mr-4 text-lg">{parent.name}</span>

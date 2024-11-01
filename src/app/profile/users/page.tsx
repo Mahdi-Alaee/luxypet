@@ -46,12 +46,12 @@ export default function Users() {
         <ul className="flex flex-col gap-y-2 mt-6">
           {users.map((user: User) => (
             <li
-              className="flex justify-between bg-gray-100 h-20"
+              className="flex flex-col gap-y-4 justify-center bg-gray-100 p-2 sm:h-20 sm:justify-between sm:flex-row"
               key={user._id}
             >
-              <span className="my-auto mr-4 text-lg">{user.name}</span>
-              <span className="my-auto mr-4 text-lg">{user.email}</span>
-              <div className="flex items-center gap-x-4 ml-4">
+              <span className="my-auto mr-4 text-lg text-center">{user.name}</span>
+              <span className="my-auto mr-4 text-lg text-center">{user.email}</span>
+              <div className="flex items-center justify-center gap-x-4 ml-4">
                 <DeleteButton
                   _id={user._id!}
                   onDelete={deleteUser}

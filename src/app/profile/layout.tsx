@@ -20,7 +20,7 @@ export default function RootLayout({
   else if (pathname !== "/profile" && !context?.user?.isAdmin)
     redirect("/profile");
   return (
-    <main className="max-w-3xl mx-auto pt-12 min-h-[40vh] mb-12">
+    <main className="max-w-3xl mx-auto pt-12 min-h-[40vh] mb-12 px-4">
       <UserTabs />
 
       {children}

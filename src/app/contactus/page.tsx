@@ -4,7 +4,7 @@ import { BsTelephone } from "react-icons/bs";
 
 export default function ContactUs() {
   return (
-    <main className="max-w-7xl mx-auto flex flex-col gap-y-2 my-2 min-h-[50vh]">
+    <main className="max-w-7xl mx-auto flex flex-col gap-y-2 my-2 min-h-[50vh] px-4">
       <h1 className="box p-4 text-center text-4xl font-bold">ارتباط باما</h1>
       {/* content */}
       <div className="box p-4 text-center text-xl flex flex-col gap-y-3">
@@ -18,7 +18,7 @@ export default function ContactUs() {
         >
           09334318411 <BsTelephone className="text-2xl" />
         </Link>
-        <div className="flex gap-x-10 justify-center pt-6">
+        <div className="flex gap-x-10 justify-center pt-6 flex-wrap gap-4">
           <Link
             href={"https://api.whatsapp.com/send?phone=09334318411"}
             className="w-32 flex flex-col items-center"

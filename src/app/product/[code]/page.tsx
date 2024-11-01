@@ -49,7 +49,7 @@ export default function ProductPage() {
   return (
     <main className="max-w-[1600px] px-6 mx-auto mt-4">
       {/* title container */}
-      <section className="flex justify-between box py-8 px-4">
+      <section className="flex flex-col gap-y-8 text-center justify-between box py-8 px-4 md:flex-row">
         {/* title */}
         <h1 className="text-2xl font-bold">
           {product?.title} - {product?.code}
@@ -61,12 +61,12 @@ export default function ProductPage() {
         </button>
       </section>
       {/* main content */}
-      <section className="box py-8 px-4 mt-4 grid grid-cols-2">
+      <section className="grid grid-cols-1 box py-8 px-4 mt-4 md:grid-cols-2">
         {/* right image */}
         <img src="/images/products/presa-1.jpg" alt="" />
 
         {/* product info */}
-        <div className="pr-3">
+        <div className="md:pr-3">
           <p className="grid grid-cols-2 py-3 pr-2 text-lg text-gray-600 odd:bg-[#e2e1e19a]">
             <span>عنوان:</span> <span>{product?.title}</span>
           </p>
@@ -116,9 +116,9 @@ export default function ProductPage() {
       </section>
       <section className="box py-8 px-4 mt-4">
         {/* title */}
-        <h2 className="text-2xl mb-4 text-center">مولدین</h2>
+        {/* <h2 className="text-2xl mb-4 text-center">مولدین</h2> */}
         {/* parents */}
-        <div className="grid grid-cols-2 w-full max-h-[600px]">
+        <div className="grid grid-cols-1 gap-y-8 w-full md:max-h-[600px] md:grid-cols-2">
           {/* پدر */}
           <div className="">
             <h3 className="text-center mb-8 text-4xl">پدر</h3>

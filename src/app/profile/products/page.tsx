@@ -53,7 +53,7 @@ export default function Products() {
         <ul className="flex flex-col gap-y-2 mt-6">
           {products.map((product: Product) => (
             <li
-              className="grid grid-cols-3 grid-rows-1 bg-gray-100 h-20"
+              className="flex flex-col-reverse items-center py-4 gap-y-4 bg-gray-100 sm:grid sm:h-28 sm:grid-cols-3 sm:grid-rows-1 sm:py-0"
               key={product._id}
             >
               <span className="my-auto mr-4 text-lg">{product.code}</span>
@@ -73,7 +73,7 @@ export default function Products() {
                 </Link>
               </div>
               <img
-                className="h-full mr-auto"
+                className="w-64 mx-auto sm:w-auto sm:h-full sm:mr-auto sm:mx-0"
                 src={'/images/products/'+product.image}
                 alt={product.title}
               />

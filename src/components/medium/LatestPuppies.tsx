@@ -25,10 +25,10 @@ export default function LatestPuppies() {
 
   if (loading) return <Loading />;
   return (
-    <section className="mb-12">
+    <section className="mb-12 mt-20 md:mt-0">
       <SectionTitle text="جدیدترین توله ها" />
 
-      <div className="grid grid-cols-3 gap-4 mt-4 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 gap-4 mt-4 max-w-7xl mx-auto px-8 sm:px-4 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <ProductBox key={product._id} {...product} />
         ))}

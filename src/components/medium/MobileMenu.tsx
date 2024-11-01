@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { TbDog } from "react-icons/tb";
 import { MdSentimentSatisfiedAlt } from "react-icons/md";
 import { MdOutlineCorporateFare } from "react-icons/md";
 import { MdContacts } from "react-icons/md";
 import { MdOutlineArticle } from "react-icons/md";
+import { AppContext } from "@/context/app";
+import { FaUser } from "react-icons/fa";
 
 interface MobileMenuProps {
   isMenuOpen: boolean;
@@ -13,6 +15,8 @@ interface MobileMenuProps {
 }
 
 function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
+  const context = useContext(AppContext);
+
   return (
     <nav
       className={`fixed z-10 right-0 top-0 bottom-0 bg-mainPurple duration-200 ${
@@ -34,15 +38,15 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
             <TbDog className="text-3xl" /> توله ها
           </Link>
         </li>
-        <li>
-          {/* <Link
+        {/* <li>
+          <Link
             className="flex justify-center gap-x-1"
             href="#"
             onClick={() => setIsMenuOpen(false)}
           >
             <MdSentimentSatisfiedAlt className="text-3xl" /> رضایت مشتری
-          </Link> */}
-        </li>
+          </Link>
+        </li> */}
         <li>
           <Link
             className="flex justify-center gap-x-1"
@@ -61,34 +65,47 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
             <MdContacts className="text-3xl" /> ارتباط با ما
           </Link>
         </li>
-        <li>
-          {/* <Link
+        {/* <li>
+          <Link
             className="flex justify-center gap-x-1"
             href="#"
             onClick={() => setIsMenuOpen(false)}
           >
             <MdOutlineArticle className="text-3xl" /> مقالات
-          </Link> */}
-        </li>
+          </Link>
+        </li> */}
       </ul>
       {/* sign buttons */}
-      <div className="mt-12 flex justify-between px-12 text-gray-50 text-xl">
-        <Link
-          className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
+      <div className="mt-12 flex justify-center gap-x-6 px-12 text-gray-50 text-xl">
+        {context?.user ? (
+          <Link
+            href="/profile"
+            className="border-4 font-bold border-gray-50 text-gray-50 px-4 py-2 rounded-full duration-150 flex gap-x-2 
+          text-lg hover:bg-gray-200 hover:text-mainPurple"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {context.user.name} <FaUser className="text-xl" />
+          </Link>
+        ) : (
+          <>
+            <Link
+              className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
           hover:bg-gray-200 hover:text-mainPurple"
-          href="/login"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          ورود
-        </Link>
-        <Link
-          className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
+              href="/login"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              ورود
+            </Link>
+            <Link
+              className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
           hover:bg-gray-200 hover:text-mainPurple"
-          href="/register"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          ثبت نام
-        </Link>
+              href="/register"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              ثبت نام
+            </Link>
+          </>
+        )}
       </div>
     </nav>
   );
