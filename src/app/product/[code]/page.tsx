@@ -3,10 +3,13 @@ import Loading from "@/app/loading";
 import BuyProductModal from "@/components/medium/BuyProductModal";
 import { calculateAge, convertGregorianToJalali } from "@/lib/utils";
 import { Parent, Product } from "@/types/entities";
+import Link from "next/link";
 /* eslint-disable @next/next/no-img-element */
 
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";;
+import { HiHome } from "react-icons/hi";
+import { LuDog } from "react-icons/lu";
 
 export default function ProductPage() {
   const { code } = useParams();
@@ -139,6 +142,10 @@ export default function ProductPage() {
           </div>
         </div>
       </section>
+      <div className="flex justify-center py-8 gap-x-8">
+        <Link className='btn-purple flex gap-x-2 items-center' href='/'>بازگشت به خانه <HiHome className="text-2xl" /></Link>
+        <Link className='btn-purple flex gap-x-2 items-center' href='/products'>تمام توله ها <LuDog className="text-2xl" /></Link>
+      </div>
       <BuyProductModal
         code={code as string}
         isOpenModal={isOpenModal}
