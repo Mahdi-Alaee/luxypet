@@ -86,12 +86,6 @@ export default function Register() {
   return (
     <main>
       <div className="flex flex-col mt-10 max-w-md px-6 mx-auto justify-center">
-        {/* <img
-          className="w-32 mb-2 mx-auto"
-          src="/images/logo2.png"
-          alt="Delpoosh logo"
-        /> */}
-
         <GlobalForm
           formSubmit={formSubmit}
           isFormValid={isFormValid}

@@ -5,6 +5,7 @@ import DeleteButton from "@/components/small/DeleteButton";
 /* eslint-disable @next/next/no-img-element */
 import NavigateButton from "@/components/small/NavigateButton";
 import { Breed } from "@/types/entities";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -65,10 +66,12 @@ export default function Breeds() {
                   حذف
                 </DeleteButton>
               </div>
-              <img
-                className="h-full mr-auto"
+              <Image
+                className="h-full w-auto mr-auto"
                 src={breed.image}
                 alt={breed.title}
+                width='1000'
+                height='1000'
               />
             </li>
           ))}

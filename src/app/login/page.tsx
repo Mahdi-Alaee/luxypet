@@ -58,7 +58,7 @@ export default function Login() {
   };
 
   return (
-    <main>
+    <main className="my-20">
       <div className="flex flex-col mt-10 max-w-md px-6 mx-auto justify-center">
         <GlobalForm
           formSubmit={formSubmit}

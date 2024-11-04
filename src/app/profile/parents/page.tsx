@@ -5,6 +5,7 @@ import DeleteButton from "@/components/small/DeleteButton";
 /* eslint-disable @next/next/no-img-element */
 import NavigateButton from "@/components/small/NavigateButton";
 import { Parent } from "@/types/entities";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -52,25 +53,27 @@ export default function Parents() {
         <ul className="flex flex-col gap-y-2 mt-6">
           {parents.map((parent: Parent) => (
             <li
-            className="grid grid-cols-3 grid-rows-1 bg-gray-100 h-24"
-            key={parent._id}
-          >
-            <span className="my-auto mr-4 text-lg">{parent.name}</span>
-            <div className="flex items-center justify-center">
-              <DeleteButton
-                _id={parent._id}
-                onDelete={deleteParent}
-                className="py-2"
-              >
-                حذف
-              </DeleteButton>
-            </div>
-            <img
-              className="h-full mr-auto"
-              src={'/images/parents/'+parent.image}
-              alt={parent.name}
-            />
-          </li>
+              className="grid grid-cols-3 grid-rows-1 bg-gray-100 h-24"
+              key={parent._id}
+            >
+              <span className="my-auto mr-4 text-lg">{parent.name}</span>
+              <div className="flex items-center justify-center">
+                <DeleteButton
+                  _id={parent._id}
+                  onDelete={deleteParent}
+                  className="py-2"
+                >
+                  حذف
+                </DeleteButton>
+              </div>
+              <Image
+                className="h-full w-auto mr-auto"
+                src={"/images/parents/" + parent.image}
+                alt={parent.name}
+                width="1000"
+                height="1000"
+              />
+            </li>
           ))}
         </ul>
       ) : (

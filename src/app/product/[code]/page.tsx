@@ -3,6 +3,7 @@ import Loading from "@/app/loading";
 import BuyProductModal from "@/components/medium/BuyProductModal";
 import { calculateAge, convertGregorianToJalali } from "@/lib/utils";
 import { Parent, Product } from "@/types/entities";
+import Image from "next/image";
 import Link from "next/link";
 /* eslint-disable @next/next/no-img-element */
 
@@ -66,7 +67,7 @@ export default function ProductPage() {
       {/* main content */}
       <section className="grid grid-cols-1 box py-8 px-4 mt-4 md:grid-cols-2">
         {/* right image */}
-        <img src="/images/products/presa-1.jpg" alt="" />
+        <Image width='1000' height='1000' src="/images/products/presa-1.jpg" alt="" />
 
         {/* product info */}
         <div className="md:pr-3">
@@ -125,7 +126,7 @@ export default function ProductPage() {
           {/* پدر */}
           <div className="">
             <h3 className="text-center mb-8 text-4xl">پدر</h3>
-            <img
+            <Image width='1000' height='1000'
               className="mx-auto max-h-96 object-contain"
               src={`/images/parents/${father?.image}`}
               alt=""
@@ -134,7 +135,7 @@ export default function ProductPage() {
           {/* مادر */}
           <div className="">
             <h3 className="text-center mb-8 text-4xl">مادر</h3>
-            <img
+            <Image width='1000' height='1000'
               className="mx-auto max-h-96 object-contain"
               src={`/images/parents/${mother?.image}`}
               alt=""

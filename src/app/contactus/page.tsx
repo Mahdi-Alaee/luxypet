@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import { BsTelephone } from "react-icons/bs";
 
@@ -24,7 +25,9 @@ export default function ContactUs() {
             className="w-32 flex flex-col items-center"
             target="_blank"
           >
-            <img src="/images/WhatsApp.png" alt="WhatsApp icon" />
+            <Image src="/images/WhatsApp.png" alt="WhatsApp icon"
+            width='1000'
+            height='1000' />
             <p className="mt-2 text-blue-500">WhatsApp</p>
           </Link>
           <Link
@@ -32,7 +35,9 @@ export default function ContactUs() {
             className="w-32 flex flex-col items-center"
             target="_blank"
           >
-            <img src="/images/telegram.png" alt="telegram icon" />
+            <Image src="/images/telegram.png" alt="telegram icon"
+            width='1000'
+            height='1000' />
             <p className="mt-2 text-blue-500">Telegram</p>
           </Link>
           <Link
@@ -40,10 +45,12 @@ export default function ContactUs() {
             className="w-32 flex flex-col items-center"
             target="_blank"
           >
-            <img
+            <Image
               className="scale-90"
               src="/images/instagram.png"
               alt="instagram icon"
+              width='1000'
+              height='1000'
             />
             <p className="mt-2 text-blue-500">Instagram</p>
           </Link>

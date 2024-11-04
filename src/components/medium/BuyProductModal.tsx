@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import { BsTelephone } from "react-icons/bs";
@@ -42,7 +43,12 @@ export default function BuyProductModal({
             className="w-32 flex flex-col items-center"
             target="_blank"
           >
-            <img src="/images/WhatsApp.png" alt="WhatsApp icon" />
+            <Image
+              width="1000"
+              height="1000"
+              src="/images/WhatsApp.png"
+              alt="WhatsApp icon"
+            />
             <p className="mt-2 text-blue-500">WhatsApp</p>
           </Link>
           <Link
@@ -50,7 +56,12 @@ export default function BuyProductModal({
             className="w-32 flex flex-col items-center"
             target="_blank"
           >
-            <img src="/images/telegram.png" alt="telegram icon" />
+            <Image
+              width="1000"
+              height="1000"
+              src="/images/telegram.png"
+              alt="telegram icon"
+            />
             <p className="mt-2 text-blue-500">Telegram</p>
           </Link>
         </div>

@@ -5,6 +5,7 @@ import DeleteButton from "@/components/small/DeleteButton";
 /* eslint-disable @next/next/no-img-element */
 import NavigateButton from "@/components/small/NavigateButton";
 import { Product } from "@/types/entities";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
@@ -72,10 +73,12 @@ export default function Products() {
                   ویرایش
                 </Link>
               </div>
-              <img
+              <Image
                 className="w-64 mx-auto sm:w-auto sm:h-full sm:mr-auto sm:mx-0"
                 src={'/images/products/'+product.image}
                 alt={product.title}
+                                width='1000'
+                height='1000'
               />
             </li>
           ))}
