@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'درباره ما',
+};
+
 export default function AboutUs() {
   return (
     <main className="max-w-7xl mx-auto flex flex-col gap-y-2 my-2 min-h-[50vh] px-4">
