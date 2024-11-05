@@ -4,6 +4,9 @@ import ProductBox from "@/components/small/ProductBox";
 import { Product as productType } from "@/types/entities";
 import { useEffect, useState } from "react";
 import Loading from "../loading";
+import Link from "next/link";
+
+
 
 export default function Products() {
   const [products, setProducts] = useState<productType[]>([]);
@@ -39,6 +42,16 @@ export default function Products() {
               <ProductBox key={product._id} {...product} />
             ))}
           </div>
+        </section>
+        <section className="box py-4 mt-4 px-6 text-lg">
+          <p className="flex gap-x-4">
+            خرید توله سگ گارد و نگهبان نژاد های مختلف با قیمت مناسب و تضمین
+            اصالت کامل.
+            <span className="underline text-mainPurple flex gap-x-4">
+              <Link href="/aboutus">درباره ما</Link>
+              <Link href="/contactus">تماس باما</Link>
+            </span>
+          </p>
         </section>
       </div>
     </main>
