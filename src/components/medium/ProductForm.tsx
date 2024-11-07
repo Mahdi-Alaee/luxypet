@@ -105,12 +105,12 @@ export default function ProductFrom({
   }, []);
 
   const getParents = async () => {
-    const res = await (await fetch("http://localhost:3000/api/parent")).json();
+    const res = await (await fetch((process?.env?.URL || '')+"/api/parent")).json();
     if (res.ok) setParents(res.data);
   };
 
   const getBreeds = async () => {
-    const res = await (await fetch("http://localhost:3000/api/breed")).json();
+    const res = await (await fetch((process?.env?.URL || '')+"/api/breed")).json();
     if (res.ok) setBreeds(res.data);
   };
 

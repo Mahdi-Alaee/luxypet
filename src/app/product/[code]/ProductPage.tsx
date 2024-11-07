@@ -8,7 +8,7 @@ import Link from "next/link";
 /* eslint-disable @next/next/no-img-element */
 
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";;
+import { useEffect, useState } from "react";
 import { HiHome } from "react-icons/hi";
 import { LuDog } from "react-icons/lu";
 
@@ -26,19 +26,19 @@ export default function ProductPage() {
 
   const getProduct = async () => {
     const res = await (
-      await fetch("http://localhost:3000/api/product?code=" + code)
+      await fetch((process?.env?.URL || "") + "/api/product?code=" + code)
     ).json();
     if (res.ok) {
       const productData = res.data as Product;
       setProduct(productData);
       const motherRes = await (
         await fetch(
-          "http://localhost:3000/api/parent?_id=" + productData.mother
+          (process?.env?.URL || "") + "/api/parent?_id=" + productData.mother
         )
       ).json();
       const fatherRes = await (
         await fetch(
-          "http://localhost:3000/api/parent?_id=" + productData.father
+          (process?.env?.URL || "") + "/api/parent?_id=" + productData.father
         )
       ).json();
       setMother(motherRes.data);
@@ -65,7 +65,12 @@ export default function ProductPage() {
       {/* main content */}
       <section className="grid grid-cols-1 box py-8 px-4 mt-4 md:grid-cols-2">
         {/* right image */}
-        <Image width='1000' height='1000' src="/images/products/presa-1.jpg" alt="" />
+        <Image
+          width="1000"
+          height="1000"
+          src="/images/products/presa-1.jpg"
+          alt=""
+        />
 
         {/* product info */}
         <div className="md:pr-3">
@@ -104,7 +109,7 @@ export default function ProductPage() {
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center box py-8 px-4 mt-4">
+      <section className="flex flex-col items-center box py-8 sm:px-4 mt-4">
         {/* title */}
         <h2 className="text-2xl mb-4">ویدئو</h2>
         {/* video */}
@@ -124,7 +129,9 @@ export default function ProductPage() {
           {/* پدر */}
           <div className="">
             <h3 className="text-center mb-8 text-4xl">پدر</h3>
-            <Image width='1000' height='1000'
+            <Image
+              width="1000"
+              height="1000"
               className="mx-auto max-h-96 object-contain"
               src={`/images/parents/${father?.image}`}
               alt=""
@@ -133,7 +140,9 @@ export default function ProductPage() {
           {/* مادر */}
           <div className="">
             <h3 className="text-center mb-8 text-4xl">مادر</h3>
-            <Image width='1000' height='1000'
+            <Image
+              width="1000"
+              height="1000"
               className="mx-auto max-h-96 object-contain"
               src={`/images/parents/${mother?.image}`}
               alt=""
@@ -142,8 +151,12 @@ export default function ProductPage() {
         </div>
       </section>
       <div className="flex justify-center py-8 gap-x-8">
-        <Link className='btn-purple flex gap-x-2 items-center' href='/'>بازگشت به خانه <HiHome className="text-2xl" /></Link>
-        <Link className='btn-purple flex gap-x-2 items-center' href='/products'>تمام توله ها <LuDog className="text-2xl" /></Link>
+        <Link className="btn-purple flex flex-col-reverse gap-2 items-center sm:flex-row" href="/">
+          بازگشت به خانه <HiHome className="text-2xl" />
+        </Link>
+        <Link className="btn-purple flex flex-col-reverse gap-2 items-center sm:flex-row" href="/products">
+          تمام توله ها <LuDog className="text-2xl" />
+        </Link>
       </div>
       <BuyProductModal
         code={code as string}

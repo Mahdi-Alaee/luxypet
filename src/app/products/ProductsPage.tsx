@@ -16,7 +16,7 @@ export default function ProductsPage() {
   }, []);
 
   const getProducts = async () => {
-    const res = await (await fetch("http://localhost:3000/api/product")).json();
+    const res = await (await fetch((process?.env?.URL || '')+"/api/product")).json();
     if (res.ok) {
       setProducts(res.data);
     }
@@ -41,7 +41,7 @@ export default function ProductsPage() {
           </div>
         </section>
         <section className="box py-4 mt-4 px-6 text-lg">
-          <p className="flex gap-x-4">
+          <p className="flex flex-col gap-y-2 gap-x-4 lg:flex-row">
             خرید توله سگ گارد و نگهبان نژاد های مختلف با قیمت مناسب و تضمین
             اصالت کامل.
             <span className="underline text-mainPurple flex gap-x-4">

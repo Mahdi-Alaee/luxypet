@@ -53,7 +53,7 @@ export default function Newproduct() {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch("http://localhost:3000/api/product", {
+    const res = await fetch((process?.env?.URL || '')+"/api/product", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ export default function Newproduct() {
 
   const loadProduct = async () => {
     const res = await (
-      await fetch("http://localhost:3000/api/product?_id=" + _id)
+      await fetch((process?.env?.URL || '')+"/api/product?_id=" + _id)
     ).json();
     if (res.ok) {
       const product = res.data;

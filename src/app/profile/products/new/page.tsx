@@ -46,7 +46,7 @@ export default function Newproduct() {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch("http://localhost:3000/api/product", {
+    const res = await fetch((process?.env?.URL || '')+"/api/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

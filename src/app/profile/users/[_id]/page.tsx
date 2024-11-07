@@ -67,7 +67,7 @@ export default function EditUser() {
 
   const getUser = async () => {
     const user = (await (
-      await fetch("http://localhost:3000/api/user?_id=" + _id)
+      await fetch((process?.env?.URL || '')+"/api/user?_id=" + _id)
     ).json()) as User;
 
     setLoadingUser(false);
@@ -80,7 +80,7 @@ export default function EditUser() {
   const formSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    const res = await fetch("http://localhost:3000/api/user", {
+    const res = await fetch((process?.env?.URL || '')+"/api/user", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

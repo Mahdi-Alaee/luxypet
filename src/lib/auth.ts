@@ -14,7 +14,7 @@ export async function login(
   goToHome: () => void,
   reloadUser: () => void
 ) {
-  const res = await fetch("http://localhost:3000/api/auth/login", {
+  const res = await fetch((process?.env?.URL || '') + "/api/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export async function register(
   reloadUser: () => void
 ) {
   setLoading(true);
-  const res = await fetch("http://localhost:3000/api/auth/register", {
+  const res = await fetch((process?.env?.URL || '') + "/api/auth/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -81,7 +81,7 @@ export async function getMe(token: string | undefined) {
     return null;
   }
 
-  const res = await fetch("http://localhost:3000/api/auth/me", {
+  const res = await fetch((process?.env?.URL || '') + "/api/auth/me", {
     method: "GET",
     headers: {
       Authorization: token,

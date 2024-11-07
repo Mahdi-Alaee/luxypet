@@ -19,7 +19,7 @@ export default function Parents() {
   }, []);
 
   const getParents = async () => {
-    const res = await (await fetch("http://localhost:3000/api/parent")).json();
+    const res = await (await fetch((process?.env?.URL || '')+"/api/parent")).json();
     if (res.ok) {
       setParents(res.data);
     }
@@ -28,7 +28,7 @@ export default function Parents() {
 
   const deleteParent = async (_id: string) => {
     const res = await (
-      await fetch("http://localhost:3000/api/parent?_id=" + _id, {
+      await fetch((process?.env?.URL || '')+"/api/parent?_id=" + _id, {
         method: "DELETE",
       })
     ).json();

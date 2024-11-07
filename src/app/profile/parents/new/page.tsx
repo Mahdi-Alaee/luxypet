@@ -31,7 +31,7 @@ export default function NewParent() {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch("http://localhost:3000/api/parent", {
+    const res = await fetch((process?.env?.URL || '')+"/api/parent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -16,7 +16,7 @@ export default function Users() {
   }, []);
 
   const getUsers = async () => {
-    const res = await fetch("http://localhost:3000/api/user");
+    const res = await fetch((process?.env?.URL || '')+"/api/user");
     const data = await res.json();
     setUsers(data);
     setLoading(false);
@@ -24,7 +24,7 @@ export default function Users() {
 
   const deleteUser = async (_id: string) => {
     const res = await (
-      await fetch("http://localhost:3000/api/user?_id=" + _id, {
+      await fetch((process?.env?.URL || '')+"/api/user?_id=" + _id, {
         method: "DELETE",
       })
     ).json();

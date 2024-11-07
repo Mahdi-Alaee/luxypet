@@ -16,6 +16,7 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaPhoneAlt } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import { inputStateDefaultValue, InputStateType } from "@/types/entities";
+import Link from "next/link";
 
 export default function Login() {
   const [phone, setPhone] = useState<InputStateType>(inputStateDefaultValue);
@@ -68,9 +69,9 @@ export default function Login() {
           topOfFormChildren={
             <div className="text-lg">
               <span>قبلا ثبت نام کرده‌اید؟</span>{" "}
-              <a className="text-mainPurple" href="/login">
-                وارد شوید
-              </a>
+              <Link className="text-mainPurple" href="/register">
+                ثبت نام کنید
+              </Link>
             </div>
           }
         >

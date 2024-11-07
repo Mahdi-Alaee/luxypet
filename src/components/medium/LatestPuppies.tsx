@@ -16,7 +16,13 @@ export default function LatestPuppies() {
   }, []);
 
   const getProducts = async () => {
-    const res = await (await fetch("http://localhost:3000/api/product")).json();
+    console.log({ url: process?.env?.URL });
+
+    const res = await (
+      await fetch((process?.env?.URL || "") + "/api/product")
+    ).json();
+    console.log({ res });
+
     if (res.ok) {
       setProducts(res.data);
     }

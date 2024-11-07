@@ -31,7 +31,7 @@ export default function NewBreed() {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch("http://localhost:3000/api/breed", {
+    const res = await fetch((process?.env?.URL || '')+"/api/breed", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

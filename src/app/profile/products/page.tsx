@@ -20,7 +20,7 @@ export default function Products() {
   }, []);
 
   const getProducts = async () => {
-    const res = await (await fetch("http://localhost:3000/api/product")).json();
+    const res = await (await fetch((process?.env?.URL || '')+"/api/product")).json();
     if (res.ok) {
       setProducts(res.data);
     }
@@ -29,7 +29,7 @@ export default function Products() {
 
   const deleteProduct = async (_id: string) => {
     const res = await (
-      await fetch("http://localhost:3000/api/product?_id=" + _id, {
+      await fetch((process?.env?.URL || '')+"/api/product?_id=" + _id, {
         method: "DELETE",
       })
     ).json();

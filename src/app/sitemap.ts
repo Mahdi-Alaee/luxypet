@@ -4,7 +4,7 @@ export default async function sitemap() {
   const baseUrl = "https://luxypet.ir";
 
   const res = await (
-    await fetch("http://localhost:3000/api/product", {
+    await fetch((process?.env?.URL || '')+"/api/product", {
       cache: "no-store",
     })
   ).json();

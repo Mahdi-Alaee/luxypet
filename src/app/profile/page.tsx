@@ -75,7 +75,7 @@ export default function Profile() {
   const formSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    const res = await fetch("http://localhost:3000/api/profile", {
+    const res = await fetch((process?.env?.URL || "") + "/api/profile", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -92,6 +92,8 @@ export default function Profile() {
     });
     if (res.ok) {
       const data = await res.json();
+      console.log({data});
+      
       if (data.ok) {
         toast.success("اطلاعات با موفقیت ویرایش گردید");
         setPassword({ isValid: true, value: "" });

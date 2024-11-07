@@ -15,6 +15,7 @@ import {
   required,
   theSameAs,
 } from "@/validation/inputs/validation-rules";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaPhoneAlt, FaUser } from "react-icons/fa";
@@ -94,9 +95,9 @@ export default function Register() {
           topOfFormChildren={
             <div className="text-lg">
               <span>قبلا ثبت نام کرده‌اید؟</span>{" "}
-              <a className="text-mainPurple" href="/login">
+              <Link className="text-mainPurple" href="/login">
                 وارد شوید
-              </a>
+              </Link>
             </div>
           }
         >

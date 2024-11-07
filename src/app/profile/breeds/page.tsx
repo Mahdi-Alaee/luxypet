@@ -19,7 +19,7 @@ export default function Breeds() {
   }, []);
 
   const getBreeds = async () => {
-    const res = await (await fetch("http://localhost:3000/api/breed")).json();
+    const res = await (await fetch((process?.env?.URL || '')+"/api/breed")).json();
     if (res.ok) {
       setBreeds(res.data);
     }
@@ -28,7 +28,7 @@ export default function Breeds() {
 
   const deleteBreed = async (_id: string) => {
     const res = await (
-      await fetch("http://localhost:3000/api/breed?_id=" + _id, {
+      await fetch((process?.env?.URL || '')+"/api/breed?_id=" + _id, {
         method: "DELETE",
       })
     ).json();
