@@ -32,7 +32,6 @@ export default function Parents() {
         method: "DELETE",
       })
     ).json();
-    console.log(res);
     if (res.ok) {
       toast.success("مولد با موفقیت حذف شد");
       getParents();

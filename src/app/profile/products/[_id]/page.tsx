@@ -90,8 +90,6 @@ export default function Newproduct() {
     ).json();
     if (res.ok) {
       const product = res.data;
-      console.log({ product });
-
       setTitle({ isValid: true, value: product.title });
       setCode({ isValid: true, value: product.code });
       setPrice({ isValid: true, value: product.price });

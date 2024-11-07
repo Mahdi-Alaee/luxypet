@@ -96,11 +96,8 @@ export default function EditUser() {
       }),
     });
     if (res.ok) {
-      console.log({ res });
       const data = await res.json();
       if (data.ok) {
-        console.log("ok");
-
         toast.success("اطلاعات با موفقیت ویرایش گردید");
         setTimeout(() => {
           context?.reloadUser();

@@ -25,8 +25,6 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-
-    console.log({ body });
     await connectDB();
     const res = await ProductModel.create({ ...body });
     return Response.json({ ok: true, res });
@@ -57,8 +55,6 @@ export async function PUT(req: NextRequest) {
 
     await connectDB();
     const res = await ProductModel.updateOne(body);
-    console.log({ res });
-
     return Response.json({ ok: res.acknowledged });
   } catch (error) {
     return Response.json({ ok: false, error });

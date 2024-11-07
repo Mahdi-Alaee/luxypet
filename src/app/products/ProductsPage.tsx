@@ -17,8 +17,6 @@ export default function ProductsPage() {
 
   const getProducts = async () => {
     const res = await (await fetch("http://localhost:3000/api/product")).json();
-    console.log(res);
-
     if (res.ok) {
       setProducts(res.data);
     }

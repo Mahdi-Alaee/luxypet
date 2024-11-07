@@ -91,11 +91,8 @@ export default function Profile() {
       }),
     });
     if (res.ok) {
-      console.log({ res });
       const data = await res.json();
       if (data.ok) {
-        console.log("ok");
-
         toast.success("اطلاعات با موفقیت ویرایش گردید");
         setPassword({ isValid: true, value: "" });
         setRePassword({ isValid: true, value: "" });

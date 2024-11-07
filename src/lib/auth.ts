@@ -43,7 +43,6 @@ export async function register(
   goToHome: () => void,
   reloadUser: () => void
 ) {
-  console.log({ body });
   setLoading(true);
   const res = await fetch("http://localhost:3000/api/auth/register", {
     method: "POST",
@@ -54,7 +53,6 @@ export async function register(
   });
 
   const data = await res.json();
-  console.log({ data });
   if (data.error) {
     setLoading(false);
     errorToast(data.error);

@@ -15,8 +15,6 @@ export async function POST(req: NextRequest) {
     const res = (await UserModel.create({ ...body, password })) as User;
 
     const accessToken = createToken(res);
-
-    console.log(res);
     return Response.json({ res, accessToken });
   } catch (err: any) {
     const errObj = err.keyValue as object;

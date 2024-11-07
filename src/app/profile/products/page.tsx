@@ -33,7 +33,6 @@ export default function Products() {
         method: "DELETE",
       })
     ).json();
-    console.log(res);
     if (res.ok) {
       toast.success("محصول با موفقیت حذف شد");
       getProducts();

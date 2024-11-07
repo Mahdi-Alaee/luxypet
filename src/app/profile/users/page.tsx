@@ -18,7 +18,6 @@ export default function Users() {
   const getUsers = async () => {
     const res = await fetch("http://localhost:3000/api/user");
     const data = await res.json();
-    console.log({ data });
     setUsers(data);
     setLoading(false);
   };
@@ -29,7 +28,6 @@ export default function Users() {
         method: "DELETE",
       })
     ).json();
-    console.log(res);
     if (res.ok) {
       toast.success("کاربر با موفقیت حذف شد");
       getUsers();

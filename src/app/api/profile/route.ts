@@ -7,8 +7,6 @@ import bcrypt from "bcrypt";
 export async function PUT(req: NextRequest) {
   const userBody = await req.json();
   const body = { ...userBody, password: undefined };
-  console.log({ body });
-
   await connectDB();
   const currentUser = (await UserModel.findById(userBody._id)) as User;
   if (!!userBody.currentPassword && !!userBody.password && !!userBody.rePassword) {
@@ -23,7 +21,5 @@ export async function PUT(req: NextRequest) {
   }
 
   const res = await UserModel.updateOne(body);
-  console.log({ res });
-
   return Response.json({ ok: res.acknowledged });
 }

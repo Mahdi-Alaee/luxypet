@@ -10,11 +10,9 @@ export async function GET(req: NextRequest) {
     await connectDB();
     if (!id) {
       const users = await UserModel.find();
-      console.log({ users });
       return Response.json(users);
     } else {
       const user = await UserModel.findById(id);
-      console.log({ user });
       return Response.json(user);
     }
   } catch (error) {
@@ -45,8 +43,6 @@ export async function PUT(req: NextRequest) {
 
     await connectDB();
     const res = await UserModel.updateOne(body);
-    console.log({ res });
-
     return Response.json({ ok: res.acknowledged });
   } catch (error) {
     return Response.json({ ok: false, error });

@@ -32,7 +32,6 @@ export default function Breeds() {
         method: "DELETE",
       })
     ).json();
-    console.log(res);
     if (res.ok) {
       toast.success("نژاد با موفقیت حذف شد");
       getBreeds();

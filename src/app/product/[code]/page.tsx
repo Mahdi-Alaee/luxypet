@@ -5,8 +5,6 @@ export async function generateMetadata({
 }: {
   params: { code: string };
 }) {
-  console.log({ code });
-
   const res = await (
     await fetch("http://localhost:3000/api/product?code=" + code)
   ).json();

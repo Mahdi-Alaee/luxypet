@@ -21,8 +21,6 @@ const MySwiper: React.FC<MySwiperProps> = ({ images,className }) => {
       allowTouchMove={false}
       spaceBetween={50}
       slidesPerView={1}
-      // onSwiper={(swiper) => console.log(swiper)}
-      // onSlideChange={() => console.log("slide change")}
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>

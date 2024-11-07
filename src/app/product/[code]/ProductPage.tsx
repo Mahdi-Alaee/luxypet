@@ -30,7 +30,6 @@ export default function ProductPage() {
     ).json();
     if (res.ok) {
       const productData = res.data as Product;
-      console.log({ productData });
       setProduct(productData);
       const motherRes = await (
         await fetch(
@@ -44,7 +43,6 @@ export default function ProductPage() {
       ).json();
       setMother(motherRes.data);
       setFather(fatherRes.data);
-      console.log({ motherRes, fatherRes });
     }
     setLoading(false);
   };
