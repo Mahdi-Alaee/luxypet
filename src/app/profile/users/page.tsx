@@ -44,7 +44,7 @@ export default function Users() {
         <ul className="flex flex-col gap-y-2 mt-6">
           {users.map((user: User) => (
             <li
-              className="flex flex-col gap-y-4 justify-center bg-gray-100 p-2 sm:h-20 sm:justify-between sm:flex-row"
+              className="flex flex-col gap-y-4 justify-center bg-mainColor text-textColor p-2 sm:h-20 sm:justify-between sm:flex-row"
               key={user._id}
             >
               <span className="my-auto mr-4 text-lg text-center">{user.name}</span>
@@ -59,7 +59,7 @@ export default function Users() {
                 </DeleteButton>
                 <Link
                   href={"/profile/users/" + user._id}
-                  className="bg-blue-500 text-lg text-white px-4 rounded-md py-2"
+                  className="bg-blue-600 text-lg text-textColor px-4 rounded-md py-2"
                 >
                   ویرایش
                 </Link>

@@ -122,7 +122,7 @@ export default function EditUser() {
         title="ویرایش اطلاعات"
       >
         <TextBox
-          icon={<FaUser className="text-gray-400 md:text-2xl" />}
+          icon={<FaUser className="text-bgColor md:text-2xl" />}
           placeholder="نام و نام خوانوادگی"
           state={name}
           setState={setName}
@@ -130,14 +130,14 @@ export default function EditUser() {
           validationRules={[required(), minLength(4), maxLength(25)]}
         />
         <TextBox
-          icon={<FaPhoneAlt className="text-gray-400 md:text-2xl" />}
+          icon={<FaPhoneAlt className="text-bgColor md:text-2xl" />}
           placeholder="شماره تلفن"
           state={phone}
           setState={setPhone}
           validationRules={[required(), mustNumber(), fieldCount(11)]}
         />
         <TextBox
-          icon={<MdMail className="text-gray-400 md:text-2xl" />}
+          icon={<MdMail className="text-bgColor md:text-2xl" />}
           placeholder="آدرس ایمیل"
           state={email}
           setState={setEmail}
@@ -149,12 +149,12 @@ export default function EditUser() {
             isPasswordHidden ? (
               <FaEyeSlash
                 onClick={() => setIsPasswordHidden(false)}
-                className="text-gray-400 cursor-pointer md:text-2xl"
+                className="text-bgColor cursor-pointer md:text-2xl"
               />
             ) : (
               <FaEye
                 onClick={() => setIsPasswordHidden(true)}
-                className="text-gray-400 cursor-pointer md:text-2xl"
+                className="text-bgColor cursor-pointer md:text-2xl"
               />
             )
           }
@@ -169,12 +169,12 @@ export default function EditUser() {
             isRePasswordHidden ? (
               <FaEyeSlash
                 onClick={() => setIsRePasswordHidden(false)}
-                className="text-gray-400 cursor-pointer md:text-2xl"
+                className="text-bgColor cursor-pointer md:text-2xl"
               />
             ) : (
               <FaEye
                 onClick={() => setIsRePasswordHidden(true)}
-                className="text-gray-400 cursor-pointer md:text-2xl"
+                className="text-bgColor cursor-pointer md:text-2xl"
               />
             )
           }

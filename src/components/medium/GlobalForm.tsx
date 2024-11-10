@@ -19,12 +19,12 @@ export default function GlobalForm({
 }: GlobalFormProps) {
   return (
     <div
-      className="bg-gray-100 flex flex-col items-center border 
-      border-gray-200 rounded-2xl p-5 w-full mx-auto gap-y-5"
+      className="bg-mainColor flex flex-col items-center border 
+      border-mainColor rounded-2xl p-5 w-full mx-auto gap-y-5"
     >
       <h1
-        className="relative text-4xl font-vazirMedium text-gray-600 
-        before:w-1/2 before:bg-mainPurple before:bg-opacity-60 
+        className="relative text-4xl font-vazirMedium text-textColor 
+        before:w-1/2 before:bg-mainColor before:bg-opacity-60 
         before:absolute before:right-0 before:bottom-0"
       >
         {title}
@@ -33,7 +33,7 @@ export default function GlobalForm({
       <form className="w-full flex flex-col gap-y-2" onSubmit={formSubmit}>
         {children}
         <button
-          className="bg-mainPurple text-white w-full rounded-lg 
+          className="bg-bgColor2 text-textColor w-1/2 mx-auto mt-8 rounded-lg 
           py-3 duration-100 cursor-pointer hover:bg-opacity-80 disabled:opacity-40"
           type="submit"
           disabled={!isFormValid || loading}

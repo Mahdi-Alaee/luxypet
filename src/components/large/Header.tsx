@@ -16,7 +16,7 @@ export default function Header() {
   
 
   return (
-    <header className="bg-mainPurple p-4 sticky z-50">
+    <header className="bg-mainColor p-4 sticky z-50">
       <div className="container mx-auto flex justify-between items-center md:flex-col-reverse md:gap-y-8">
         {/* menu button */}
         <MenuButton isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
@@ -24,22 +24,22 @@ export default function Header() {
         {/* sign buttons */}
         <div className="hidden md:flex gap-x-10">
           {context?.user ? (
-            <Link href='/profile' className="border-4 font-bold border-gray-50 text-gray-50 px-4 py-2 rounded-full duration-150 flex gap-x-2 
-          text-lg hover:bg-gray-200 hover:text-mainPurple">
+            <Link href='/profile' className="border-4 font-bold border-textColor text-textColor px-4 py-2 rounded-full duration-150 flex gap-x-2 
+          text-lg hover:bg-gray-400 hover:border-gray-400 hover:text-mainColor">
               {context.user.name} <FaUser className="text-xl" />
             </Link>
           ) : (
             <>
           <Link
-            className="border-4 font-bold border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
-          hover:bg-gray-200 hover:text-mainPurple"
+            className="border-4 font-bold border-textColor text-textColor px-8 py-2 rounded-full duration-150 
+          hover:bg-gray-400 hover:border-gray-400 hover:text-mainColor"
             href="/login"
           >
             ورود
           </Link>
           <Link
-            className="border-4 font-bold border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
-          hover:bg-gray-200 hover:text-mainPurple"
+            className="border-4 font-bold border-textColor text-textColor px-8 py-2 rounded-full duration-150 
+          hover:bg-gray-400 hover:border-gray-400 hover:text-mainColor"
             href="/register"
           >
             ثبت نام
@@ -49,7 +49,7 @@ export default function Header() {
         </div>
         {/* desktop menu */}
         <nav className="hidden md:block">
-          <ul className="flex text-gray-100 gap-x-8 text-lg">
+          <ul className="flex text-textColor gap-x-8 text-lg">
             <li>
               <Link className="flex gap-x-2" href="/products"><TbDog className="text-3xl" /> توله ها</Link>
             </li>
@@ -71,7 +71,7 @@ export default function Header() {
         {/* logo */}
         <Link
           className={` text-3xl md:text-5xl ${
-            isMenuOpen ? "text-mainPurple fixed z-50 left-4 top-0" : "text-white"
+            isMenuOpen ? "text-mainColor fixed z-50 left-4 top-0" : "text-textColor"
           }`}
           href="/"
           onClick={()=> setIsMenuOpen(false)}

@@ -6,7 +6,7 @@ import { MdMail } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <footer className="bg-mainPurple">
+    <footer className="bg-mainColor">
       {/* container */}
       <div className="max-w-7xl mx-auto py-16 px-8">
         {/* footer top */}
@@ -25,33 +25,33 @@ export default function Footer() {
           <div className="flex gap-x-2">
             {/* WhatsApp */}
             <Link
-              className="group bg-gray-400 rounded-full p-3 duration-75 hover:bg-gray-300"
+              className="group bg-bgColor rounded-full p-3 duration-75 hover:bg-gray-300"
               href="https://api.whatsapp.com/send?phone=09334318411&text=presa1"
               target="_blank"
             >
-              <FaWhatsapp className="text-3xl group-hover:text-blue-700" />
+              <FaWhatsapp className="text-3xl text-textColor/80 group-hover:text-blue-700" />
             </Link>
             {/* Telegram */}
             <Link
-              className="group bg-gray-400 rounded-full p-3 duration-75 hover:bg-gray-300"
+              className="group bg-bgColor rounded-full p-3 duration-75 hover:bg-gray-300"
               href="https://t.me/mahdiXXX"
               target="_blank"
             >
-              <FaTelegramPlane className="text-3xl group-hover:text-blue-700" />
+              <FaTelegramPlane className="text-3xl text-textColor/80 group-hover:text-blue-700" />
             </Link>
             {/* Instagram */}
             <Link
-              className="group bg-gray-400 rounded-full p-3 duration-75 hover:bg-gray-300"
+              className="group bg-bgColor rounded-full p-3 duration-75 hover:bg-gray-300"
               href="https://www.instagram.com/luxypet.ir/"
               target="_blank"
             >
-              <FaInstagram className="text-3xl group-hover:text-blue-700" />
+              <FaInstagram className="text-3xl text-textColor/80 group-hover:text-blue-700" />
             </Link>
           </div>
         </div>
         <div className="mt-8 flex gap-x-8 justify-center flex-wrap">
           <Link
-            className="text-gray-200 flex items-center gap-x-2 duration-75 hover:text-blue-200"
+            className="text-textColor/80 flex items-center gap-x-2 duration-75 hover:text-blue-200"
             href="tel:+989334318411"
             target="_blank"
           >
@@ -59,7 +59,7 @@ export default function Footer() {
             <span className="text-xl pt-2">09334318411</span>
           </Link>
           <Link
-            className="text-gray-200 flex items-center gap-x-2 duration-75 hover:text-blue-200"
+            className="text-textColor/80 flex items-center gap-x-2 duration-75 hover:text-blue-200"
             href="mailto:luxypet.iran@gmail.com"
             target="_blank"
           >

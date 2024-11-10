@@ -95,14 +95,14 @@ export default function Register() {
           topOfFormChildren={
             <div className="text-lg">
               <span>قبلا ثبت نام کرده‌اید؟</span>{" "}
-              <Link className="text-mainPurple" href="/login">
+              <Link className="text-mainColor" href="/login">
                 وارد شوید
               </Link>
             </div>
           }
         >
           <TextBox
-            icon={<FaUser className="text-gray-400 md:text-2xl" />}
+            icon={<FaUser className="text-bgColor md:text-2xl" />}
             placeholder="نام و نام خوانوادگی"
             state={name}
             setState={setName}
@@ -110,14 +110,14 @@ export default function Register() {
             validationRules={[required(), minLength(4), maxLength(25)]}
           />
           <TextBox
-            icon={<FaPhoneAlt className="text-gray-400 md:text-2xl" />}
+            icon={<FaPhoneAlt className="text-bgColor md:text-2xl" />}
             placeholder="شماره تلفن"
             state={phone}
             setState={setPhone}
             validationRules={[required(), mustNumber(), fieldCount(11)]}
           />
           <TextBox
-            icon={<MdMail className="text-gray-400 md:text-2xl" />}
+            icon={<MdMail className="text-bgColor md:text-2xl" />}
             placeholder="آدرس ایمیل"
             state={email}
             setState={setEmail}
@@ -129,12 +129,12 @@ export default function Register() {
               isPasswordHidden ? (
                 <FaEyeSlash
                   onClick={() => setIsPasswordHidden(false)}
-                  className="text-gray-400 cursor-pointer md:text-2xl"
+                  className="text-bgColor cursor-pointer md:text-2xl"
                 />
               ) : (
                 <FaEye
                   onClick={() => setIsPasswordHidden(true)}
-                  className="text-gray-400 cursor-pointer md:text-2xl"
+                  className="text-bgColor cursor-pointer md:text-2xl"
                 />
               )
             }
@@ -149,12 +149,12 @@ export default function Register() {
               isRePasswordHidden ? (
                 <FaEyeSlash
                   onClick={() => setIsRePasswordHidden(false)}
-                  className="text-gray-400 cursor-pointer md:text-2xl"
+                  className="text-bgColor cursor-pointer md:text-2xl"
                 />
               ) : (
                 <FaEye
                   onClick={() => setIsRePasswordHidden(true)}
-                  className="text-gray-400 cursor-pointer md:text-2xl"
+                  className="text-bgColor cursor-pointer md:text-2xl"
                 />
               )
             }
@@ -167,7 +167,7 @@ export default function Register() {
         </GlobalForm>
         <p className="mx-auto text-center mt-4 md:text-lg">
           با عضویت در سایت، تمامی{" "}
-          <a className="text-mainPurple" href="/terms-conditions">
+          <a className="text-mainColor" href="/terms-conditions">
             قوانین و شرایط
           </a>{" "}
           استفاده از خدمت فروشگاه اینترنتی لوکسی پت را پذیرفته اید.

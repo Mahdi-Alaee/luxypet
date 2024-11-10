@@ -113,10 +113,10 @@ body {
 /** finish Menu Button */
 /** start helper classes */
 .btn-purple {
-    @apply bg-mainPurple text-white p-4 font-bold text-lg rounded-md duration-150 hover:bg-white hover:text-mainPurple
+    @apply text-textColor p-4 font-bold text-lg rounded-md duration-150 hover:bg-gray-400 hover:text-bgColor
 }
 .box {
-    @apply bg-gray-300 shadow rounded-lg
+    @apply shadow rounded-lg;
 }
 /** finish helper classes */
 /** start aparat classes */

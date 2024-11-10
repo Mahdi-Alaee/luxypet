@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ProductBox({ title, image, price, code }: Product) {
   return (
-    <div className="group bg-gray-100 shadow-sm overflow-hidden rounded-lg">
+    <div className="group bg-mainColor text-textColor shadow-sm overflow-hidden rounded-lg">
       {/* image */}
       <Link href={"/product/" + code}>
         <Image
@@ -19,7 +19,7 @@ export default function ProductBox({ title, image, price, code }: Product) {
       {/* title */}
       <Link
         href={"/product/" + code}
-        className="block text-xl my-3 mx-3 font-bold cursor-pointer duration-200 group-hover:text-mainPurple"
+        className="block text-xl my-3 mx-3 font-bold cursor-pointer duration-200 group-hover:text-mainColor"
       >
         {title}
       </Link>

@@ -5,7 +5,7 @@ interface SectionTitleProps{
 export default function SectionTitle({text}:SectionTitleProps) {
     return (
         <div className="text-center">
-            <h3 className="text-3xl bg-mainPurple py-4 text-gray-100">{text}</h3>
+            <h3 className="text-3xl bg-mainColor py-4 text-gray-100">{text}</h3>
         </div>
     )
 }

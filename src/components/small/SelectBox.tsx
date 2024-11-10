@@ -29,9 +29,9 @@ export default function SelectBox({
       onChange={(e) =>
         setState({ value: e.target.value, isValid: e.target.value !== "f" })
       }
-      className={`text-lg text-gray-400 h-12 rounded-lg outline-none cursor-pointer ${
+      className={`text-lg text-textColor/80 bg-bgColor h-12 rounded-lg outline-none cursor-pointer ${
         state.isValid === false
-          ? "border-4 border-red-500"
+          ? "border-4 border-red-600"
           : state.isValid === true
           ? "border-4 border-green-500"
           : ""

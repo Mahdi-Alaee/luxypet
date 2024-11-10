@@ -23,7 +23,7 @@ export default function DeleteButton({
     <>
       {/* button */}
       <button
-        className={`bg-red-500 text-lg text-white px-4 rounded-md ${className}`}
+        className={`bg-red-600 text-lg text-textColor px-4 rounded-md ${className}`}
         onClick={() => setIsOpenModal(true)}
       >
         {children}
@@ -45,7 +45,7 @@ export default function DeleteButton({
           {/* buttons */}
           <div className="flex gap-x-4 justify-center">
             <button
-              className="bg-red-500 text-white p-2 rounded-md"
+              className="bg-red-600 text-textColor p-2 rounded-md"
               onClick={() => {
                 onDelete(_id);
                 setIsOpenModal(false);

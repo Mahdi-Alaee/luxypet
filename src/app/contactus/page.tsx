@@ -19,7 +19,7 @@ export default function ContactUs() {
         </h2>
         <Link
           href="tel:+989334318411"
-          className="flex gap-x-2 items-center bg-black text-white font-bold rounded-md px-4 py-2 text-lg w-max mx-auto mt-6 duration-150 hover:bg-blue-500"
+          className="flex gap-x-2 items-center bg-black text-textColor font-bold rounded-md px-4 py-2 text-lg w-max mx-auto mt-6 duration-150 hover:bg-blue-600"
           target="_blank"
         >
           09334318411 <BsTelephone className="text-2xl" />
@@ -33,7 +33,7 @@ export default function ContactUs() {
             <Image src="/images/WhatsApp.png" alt="WhatsApp icon"
             width='1000'
             height='1000' />
-            <p className="mt-2 text-blue-500">WhatsApp</p>
+            <p className="mt-2 text-blue-600">WhatsApp</p>
           </Link>
           <Link
             href="https://t.me/mahdiXXX"
@@ -43,7 +43,7 @@ export default function ContactUs() {
             <Image src="/images/telegram.png" alt="telegram icon"
             width='1000'
             height='1000' />
-            <p className="mt-2 text-blue-500">Telegram</p>
+            <p className="mt-2 text-blue-600">Telegram</p>
           </Link>
           <Link
             href="https://www.instagram.com/luxypet.ir/"
@@ -57,7 +57,7 @@ export default function ContactUs() {
               width='1000'
               height='1000'
             />
-            <p className="mt-2 text-blue-500">Instagram</p>
+            <p className="mt-2 text-blue-600">Instagram</p>
           </Link>
         </div>
       </div>

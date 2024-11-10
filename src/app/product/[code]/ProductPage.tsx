@@ -51,19 +51,19 @@ export default function ProductPage() {
   return (
     <main className="max-w-[1600px] px-6 mx-auto mt-4">
       {/* title container */}
-      <section className="flex flex-col gap-y-8 text-center justify-between box py-8 px-4 md:flex-row">
+      <section className="flex flex-col gap-y-8 text-center justify-between box bg-mainColor py-8 px-4 md:flex-row">
         {/* title */}
-        <h1 className="text-2xl font-bold">
+        <h1 className="text-2xl text-textColor font-bold">
           {product?.title} - {product?.code}
         </h1>
 
         {/* buy button */}
-        <button onClick={() => setIsOpenModal(true)} className="btn-purple">
+        <button onClick={() => setIsOpenModal(true)} className="btn-purple bg-bgColor">
           خرید محصول
         </button>
       </section>
       {/* main content */}
-      <section className="grid grid-cols-1 box py-8 px-4 mt-4 md:grid-cols-2">
+      <section className="grid grid-cols-1 box bg-mainColor py-8 px-4 mt-4 md:grid-cols-2">
         {/* right image */}
         <Image
           width="1000"
@@ -74,14 +74,14 @@ export default function ProductPage() {
 
         {/* product info */}
         <div className="md:pr-3">
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-gray-600 odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
             <span>عنوان:</span> <span>{product?.title}</span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-gray-600 odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
             <span>قیمت:</span>{" "}
             <span>{product?.price.toLocaleString()} تومان</span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-gray-600 odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
             <span>سن:</span>{" "}
             <span>
               {product
@@ -94,24 +94,24 @@ export default function ProductPage() {
                 : null}
             </span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-gray-600 odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
             <span>جنسیت:</span>{" "}
             <span>{product?.sex === "male" ? "نر" : "ماده"}</span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-gray-600 odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
             <span>تاریخ تولد:</span> <span>{product?.birthDate}</span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-gray-600 odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
             <span>کد محصول:</span> <span>{product?.code}</span>
           </p>
-          <p className="text-red-500 h-48 flex-grow content-center text-center text-2xl">
+          <p className="text-red-600 h-48 flex-grow content-center text-center text-2xl">
             تضمین بالاترین کیفیت و مناسب ترین قیمت ✌
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center box py-8 sm:px-4 mt-4">
+      <section className="flex flex-col items-center box bg-mainColor py-8 sm:px-4 mt-4">
         {/* title */}
-        <h2 className="text-2xl mb-4">ویدئو</h2>
+        <h2 className="text-2xl mb-4 text-textColor">ویدئو</h2>
         {/* video */}
         <div className="h_iframe-aparat_embed_frame">
           <span style={{ display: "block", paddingTop: "57%" }}></span>
@@ -121,14 +121,14 @@ export default function ProductPage() {
           ></iframe>
         </div>
       </section>
-      <section className="box py-8 px-4 mt-4">
+      <section className="box bg-mainColor py-8 px-4 mt-4">
         {/* title */}
         {/* <h2 className="text-2xl mb-4 text-center">مولدین</h2> */}
         {/* parents */}
         <div className="grid grid-cols-1 gap-y-8 w-full md:max-h-[600px] md:grid-cols-2">
           {/* پدر */}
           <div className="">
-            <h3 className="text-center mb-8 text-4xl">پدر</h3>
+            <h3 className="text-center mb-8 text-4xl text-textColor">پدر</h3>
             <Image
               width="1000"
               height="1000"
@@ -139,7 +139,7 @@ export default function ProductPage() {
           </div>
           {/* مادر */}
           <div className="">
-            <h3 className="text-center mb-8 text-4xl">مادر</h3>
+            <h3 className="text-center mb-8 text-4xl text-textColor">مادر</h3>
             <Image
               width="1000"
               height="1000"
@@ -151,10 +151,10 @@ export default function ProductPage() {
         </div>
       </section>
       <div className="flex justify-center py-8 gap-x-8">
-        <Link className="btn-purple flex flex-col-reverse gap-2 items-center sm:flex-row" href="/">
+        <Link className="btn-purple bg-mainColor flex flex-col-reverse gap-2 items-center sm:flex-row" href="/">
           بازگشت به خانه <HiHome className="text-2xl" />
         </Link>
-        <Link className="btn-purple flex flex-col-reverse gap-2 items-center sm:flex-row" href="/products">
+        <Link className="btn-purple bg-mainColor flex flex-col-reverse gap-2 items-center sm:flex-row" href="/products">
           تمام توله ها <LuDog className="text-2xl" />
         </Link>
       </div>

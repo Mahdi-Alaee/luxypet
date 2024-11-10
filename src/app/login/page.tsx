@@ -69,14 +69,14 @@ export default function Login() {
           topOfFormChildren={
             <div className="text-lg">
               <span>قبلا ثبت نام کرده‌اید؟</span>{" "}
-              <Link className="text-mainPurple" href="/register">
+              <Link className="text-blue-700" href="/register">
                 ثبت نام کنید
               </Link>
             </div>
           }
         >
           <TextBox
-            icon={<FaPhoneAlt className="text-gray-400 md:text-2xl" />}
+            icon={<FaPhoneAlt className="text-bgColor md:text-2xl" />}
             placeholder="شماره تلفن"
             state={phone}
             setState={setPhone}
@@ -87,12 +87,12 @@ export default function Login() {
               isPasswordHidden ? (
                 <FaEyeSlash
                   onClick={() => setIsPasswordHidden(false)}
-                  className="text-gray-400 cursor-pointer md:text-2xl"
+                  className="text-bgColor cursor-pointer md:text-2xl"
                 />
               ) : (
                 <FaEye
                   onClick={() => setIsPasswordHidden(true)}
-                  className="text-gray-400 cursor-pointer md:text-2xl"
+                  className="text-bgColor cursor-pointer md:text-2xl"
                 />
               )
             }
@@ -105,7 +105,7 @@ export default function Login() {
         </GlobalForm>
         <p className="mx-auto text-center mt-4 md:text-lg">
           با عضویت در سایت، تمامی{" "}
-          <a className="text-mainPurple" href="/terms-conditions">
+          <a className="text-blue-700" href="/terms-conditions">
             قوانین و شرایط
           </a>{" "}
           استفاده از خدمت فروشگاه اینترنتی لوکسی پت را پذیرفته اید.

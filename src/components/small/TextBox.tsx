@@ -52,12 +52,12 @@ export default function TextBox({
   return (
     <>
       <div
-        className="bg-white flex items-center p-3 rounded-xl 
+        className="bg-bgColor flex items-center p-3 rounded-xl 
           justify-between "
       >
         <input
           type={type}
-          className="text-right outline-none w-full font-lg placeholder:text-sm md:placeholder:text-lg md:text-lg"
+          className="text-right outline-none w-full bg-bgColor text-textColor font-lg placeholder:text-sm md:placeholder:text-lg md:text-lg"
           placeholder={placeholder}
           value={state.value}
           onChange={onInputChange}
@@ -66,7 +66,7 @@ export default function TextBox({
         {icon}
       </div>
 
-      <p className="text-red-500">{message}</p>
+      <p className="text-red-600">{message}</p>
     </>
   );
 }

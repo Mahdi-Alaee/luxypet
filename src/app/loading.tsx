@@ -21,8 +21,8 @@ export default function Loading({ isFakeLoading = false }: LoadingProps) {
   if (!loading) return false;
 
   return (
-    <div className="fixed top-0 left-0 bottom-0 right-0 z-50 bg-gray-400 flex justify-center items-center">
-      <HashLoader color="#D500F9" size={150} />
+    <div className="fixed top-0 left-0 bottom-0 right-0 z-50 bg-bgColor flex justify-center items-center">
+      <HashLoader color="#603191" size={150} />
     </div>
   );
 }

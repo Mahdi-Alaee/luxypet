@@ -9,9 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        mainPurple: "#D500F9",
+        mainColor: "#263238",
         darkestPurple: "#4A148C",
-        bgColor: '#BDBDBD'
+        bgColor: '#37474F',
+        bgColor2: '#303b41',
+        textColor:'#d3d1d1'
       },
       fontFamily: {
         sans: ["vazir", "sans-serif"],

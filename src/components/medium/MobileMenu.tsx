@@ -19,16 +19,16 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
 
   return (
     <nav
-      className={`fixed z-10 right-0 top-0 bottom-0 bg-mainPurple duration-200 ${
+      className={`fixed z-10 right-0 top-0 bottom-0 bg-mainColor duration-200 ${
         isMenuOpen
           ? "left-0 opacity-100 visible"
           : "left-full invisible opacity-0"
       }`}
     >
       {/* top bar */}
-      <div className="bg-gray-100 w-full h-20"></div>
+      <div className="bg-bgColor w-full h-20"></div>
       {/* menu items */}
-      <ul className="flex flex-col gap-y-6 pt-6 text-center text-gray-100 font-sans text-2xl">
+      <ul className="flex flex-col gap-y-6 pt-6 text-center text-textColor font-sans text-2xl">
         <li>
           <Link
             className="flex justify-center gap-x-1"
@@ -76,12 +76,12 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
         </li> */}
       </ul>
       {/* sign buttons */}
-      <div className="mt-12 flex justify-center gap-x-6 px-12 text-gray-50 text-xl">
+      <div className="mt-12 flex justify-center gap-x-6 px-12 text-textColor text-xl">
         {context?.user ? (
           <Link
             href="/profile"
-            className="border-4 font-bold border-gray-50 text-gray-50 px-4 py-2 rounded-full duration-150 flex gap-x-2 
-          text-lg hover:bg-gray-200 hover:text-mainPurple"
+            className="border-4 font-bold border-textColor text-textColor px-4 py-2 rounded-full duration-150 flex gap-x-2 
+          text-lg hover:bg-gray-200 hover:text-mainColor"
             onClick={() => setIsMenuOpen(false)}
           >
             {context.user.name} <FaUser className="text-xl" />
@@ -89,16 +89,16 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
         ) : (
           <>
             <Link
-              className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
-          hover:bg-gray-200 hover:text-mainPurple"
+              className="border-2 border-textColor text-textColor px-8 py-2 rounded-full duration-150 
+          hover:bg-gray-200 hover:text-mainColor"
               href="/login"
               onClick={() => setIsMenuOpen(false)}
             >
               ورود
             </Link>
             <Link
-              className="border-2 border-gray-50 text-gray-50 px-8 py-2 rounded-full duration-150 
-          hover:bg-gray-200 hover:text-mainPurple"
+              className="border-2 border-textColor text-textColor px-8 py-2 rounded-full duration-150 
+          hover:bg-gray-200 hover:text-mainColor"
               href="/register"
               onClick={() => setIsMenuOpen(false)}
             >

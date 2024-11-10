@@ -53,7 +53,7 @@ export default function Products() {
         <ul className="flex flex-col gap-y-2 mt-6">
           {products.map((product: Product) => (
             <li
-              className="flex flex-col-reverse items-center py-4 gap-y-4 bg-gray-100 sm:grid sm:h-28 sm:grid-cols-3 sm:grid-rows-1 sm:py-0"
+              className="flex flex-col-reverse items-center py-4 gap-y-4 bg-mainColor text-textColor sm:grid sm:h-28 sm:grid-cols-3 sm:grid-rows-1 sm:py-0"
               key={product._id}
             >
               <span className="my-auto mr-4 text-lg">{product.code}</span>
@@ -67,7 +67,7 @@ export default function Products() {
                 </DeleteButton>
                 <Link
                   href={"/profile/products/" + product._id}
-                  className="bg-blue-500 text-lg text-white px-4 rounded-md py-2"
+                  className="bg-blue-600 text-lg text-textColor px-4 rounded-md py-2"
                 >
                   ویرایش
                 </Link>

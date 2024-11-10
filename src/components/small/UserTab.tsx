@@ -13,8 +13,8 @@ export default function UserTab({ href, title }: UserTabProps) {
   
   return (
     <Link
-      className={`text-xl rounded-full px-4 py-2 duration-150 hover:text-mainPurple bg-gray-300 ${
-        pathname === href && "text-mainPurple"
+      className={`text-xl rounded-full px-5 py-3 duration-150 hover:text-textColor/80 bg-bgColor2 text-textColor ${
+        pathname === href && "bg-mainColor"
       }`}
       href={href}
     >
