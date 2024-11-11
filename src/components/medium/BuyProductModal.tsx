@@ -29,16 +29,16 @@ export default function BuyProductModal({
           بگیرید
         </h2>
         <Link
-          href="tel:+989334318411"
+          href="tel:+989923847856"
           className="flex gap-x-2 items-center bg-black text-textColor font-bold rounded-md px-4 py-2 text-lg w-max mx-auto mt-6 duration-150 hover:bg-blue-600"
           target="_blank"
         >
-          09334318411 <BsTelephone className="text-2xl" />
+          09923847856 <BsTelephone className="text-2xl" />
         </Link>
         <div className="flex gap-x-10 justify-center pt-6">
           <Link
             href={
-              "https://api.whatsapp.com/send?phone=09334318411&text=" + code
+              "https://api.whatsapp.com/send?phone=09923847856&text=" + code
             }
             className="w-32 flex flex-col items-center"
             target="_blank"

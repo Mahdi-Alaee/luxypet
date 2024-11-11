@@ -19,7 +19,7 @@ export default function ProductBox({ title, image, price, code }: Product) {
       {/* title */}
       <Link
         href={"/product/" + code}
-        className="block text-xl my-3 mx-3 font-bold cursor-pointer duration-200 group-hover:text-mainColor"
+        className="block text-textColor/80 text-xl my-3 mx-3 font-bold cursor-pointer duration-200 group-hover:text-textColor"
       >
         {title}
       </Link>

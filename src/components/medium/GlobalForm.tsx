@@ -33,7 +33,7 @@ export default function GlobalForm({
       <form className="w-full flex flex-col gap-y-2" onSubmit={formSubmit}>
         {children}
         <button
-          className="bg-bgColor2 text-textColor w-1/2 mx-auto mt-8 rounded-lg 
+          className="bg-bgColor2 text-textColor w-1/2 mx-auto mt-4 rounded-lg 
           py-3 duration-100 cursor-pointer hover:bg-opacity-80 disabled:opacity-40"
           type="submit"
           disabled={!isFormValid || loading}

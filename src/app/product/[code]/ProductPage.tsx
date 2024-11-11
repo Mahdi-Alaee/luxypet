@@ -74,14 +74,14 @@ export default function ProductPage() {
 
         {/* product info */}
         <div className="md:pr-3">
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor even:text-mainColor even:bg-[#e2e1e19a]/50">
             <span>عنوان:</span> <span>{product?.title}</span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor even:text-mainColor even:bg-[#e2e1e19a]/50">
             <span>قیمت:</span>{" "}
             <span>{product?.price.toLocaleString()} تومان</span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor even:text-mainColor even:bg-[#e2e1e19a]/50">
             <span>سن:</span>{" "}
             <span>
               {product
@@ -94,14 +94,14 @@ export default function ProductPage() {
                 : null}
             </span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor even:text-mainColor even:bg-[#e2e1e19a]/50">
             <span>جنسیت:</span>{" "}
             <span>{product?.sex === "male" ? "نر" : "ماده"}</span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor even:text-mainColor even:bg-[#e2e1e19a]/50">
             <span>تاریخ تولد:</span> <span>{product?.birthDate}</span>
           </p>
-          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor odd:text-mainColor odd:bg-[#e2e1e19a]">
+          <p className="grid grid-cols-2 py-3 pr-2 text-lg text-textColor even:text-mainColor even:bg-[#e2e1e19a]/50">
             <span>کد محصول:</span> <span>{product?.code}</span>
           </p>
           <p className="text-red-600 h-48 flex-grow content-center text-center text-2xl">
