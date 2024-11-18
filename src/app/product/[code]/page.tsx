@@ -40,6 +40,11 @@ export async function generateMetadata({
       title: `${res.data.title}`,
       description: `خرید و قیمت ${res.data.title}`,
       keywords,
+      openGraph:{
+        title:`${res.data.title}`,
+        description: `خرید و قیمت ${res.data.title}`,
+        images:`/images/products/${res.data.image}`
+      }
     };
   } catch (err) {
     console.log(err);

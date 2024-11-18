@@ -7,6 +7,7 @@ import Footer from "@/components/large/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process?.env?.URL as string),
   title: {
     template: "لوکسی پت | %s",
     default: "لوکسی پت",

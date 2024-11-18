@@ -68,7 +68,7 @@ export default function ProductPage() {
         <Image
           width="1000"
           height="1000"
-          src="/images/products/presa-1.jpg"
+          src={"/images/products/"+product?.image}
           alt=""
         />
 
