@@ -26,7 +26,7 @@ export default function Footer() {
             {/* WhatsApp */}
             <Link
               className="group bg-bgColor rounded-full p-3 duration-75 hover:bg-gray-300"
-              href="https://api.whatsapp.com/send?phone=09923847856&text=presa1"
+              href="https://api.whatsapp.com/send?phone=09936585545&text=presa1"
               target="_blank"
             >
               <FaWhatsapp className="text-3xl text-textColor/80 group-hover:text-blue-700" />
@@ -56,7 +56,7 @@ export default function Footer() {
             target="_blank"
           >
             <BsTelephone className="text-3xl" />
-            <span className="text-xl pt-2">09923847856</span>
+            <span className="text-xl pt-2">09936585545</span>
           </Link>
           <Link
             className="text-textColor/80 flex items-center gap-x-2 duration-75 hover:text-blue-200"
