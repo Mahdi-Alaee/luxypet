@@ -72,7 +72,11 @@ export default function Newproduct() {
         breed: breed.value,
       }),
     });
+    console.log(res);
+    
     const data = await res.json();
+    console.log(data);
+
     if (data.ok) {
       toast.success("محصول با موفقیت ویرایش شد");
       setTimeout(() => {

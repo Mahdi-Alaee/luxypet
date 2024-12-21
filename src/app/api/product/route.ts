@@ -52,9 +52,15 @@ export async function DELETE(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   try {
     const body = await req.json();
+    console.log({ body });
 
     await connectDB();
-    const res = await ProductModel.updateOne(body);
+    const res = await ProductModel.updateOne(
+      { _id: body._id },
+      { ...body, _id: undefined }
+    );
+    console.log({ res });
+
     return Response.json({ ok: res.acknowledged });
   } catch (error) {
     return Response.json({ ok: false, error });
