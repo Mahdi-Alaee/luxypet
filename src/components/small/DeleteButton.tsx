@@ -41,7 +41,7 @@ export default function DeleteButton({
           onClick={(e) => e.stopPropagation()}
         >
           {/* question */}
-          <p className="text-xl">{modalMessage}</p>
+          <p className="text-xl text-black">{modalMessage}</p>
           {/* buttons */}
           <div className="flex gap-x-4 justify-center">
             <button
@@ -54,7 +54,7 @@ export default function DeleteButton({
               حذف
             </button>
             <button
-              className="border-2 p-2"
+              className="border-2 p-2 text-black"
               onClick={() => setIsOpenModal(false)}
             >
               لغو
