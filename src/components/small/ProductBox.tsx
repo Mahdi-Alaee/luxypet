@@ -9,7 +9,7 @@ export default function ProductBox({ title, image, price, code }: Product) {
       {/* image */}
       <Link href={"/product/" + code}>
         <Image
-          className="duration-200 group-hover:scale-105"
+          className="duration-200 max-h-52 object-cover group-hover:scale-105"
           src={"/images/products/" + image}
           alt={title}
           width="1000"

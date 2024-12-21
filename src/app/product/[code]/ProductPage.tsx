@@ -113,14 +113,14 @@ export default function ProductPage() {
         {/* title */}
         <h2 className="text-2xl mb-4 text-textColor">ویدئو</h2>
         {/* video */}
-        {/* <div className="h_iframe-aparat_embed_frame">
+        <div className="h_iframe-aparat_embed_frame">
           <span style={{ display: "block", paddingTop: "57%" }}></span>
           <iframe
             src={`https://www.aparat.com/video/video/embed/videohash/${product?.video}/vt/frame`}
             allowFullScreen={true}
           ></iframe>
-        </div> */}
-          <video controls src="https://www.irandogsland.com/images/video/20231204_9_new.mp4"></video>
+        </div>
+          {/* <video controls src="https://www.irandogsland.com/images/video/20231204_9_new.mp4"></video> */}
       </section>
       <section className="box bg-mainColor py-8 px-4 mt-4">
         {/* title */}
