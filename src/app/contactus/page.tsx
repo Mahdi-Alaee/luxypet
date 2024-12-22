@@ -5,13 +5,15 @@ import Link from "next/link";
 import { BsTelephone } from "react-icons/bs";
 
 export const metadata: Metadata = {
-  title: 'تماس باما',
+  title: "تماس باما",
 };
 
 export default function ContactUs() {
   return (
     <main className="max-w-7xl mx-auto flex text-textColor flex-col gap-y-2 my-2 min-h-[50vh] px-4">
-      <h1 className="box bg-bgColor2 p-4 text-center text-4xl font-bold">ارتباط باما</h1>
+      <h1 className="box bg-bgColor2 p-4 text-center text-4xl font-bold">
+        ارتباط باما
+      </h1>
       {/* content */}
       <div className="box bg-bgColor2 p-4 text-center text-xl flex flex-col gap-y-3">
         <h2 className="text-3xl text-center font-bold">
@@ -30,9 +32,12 @@ export default function ContactUs() {
             className="w-32 flex flex-col items-center"
             target="_blank"
           >
-            <Image src="/images/WhatsApp.png" alt="WhatsApp icon"
-            width='1000'
-            height='1000' />
+            <Image
+              src="/images/WhatsApp.png"
+              alt="WhatsApp icon"
+              width="1000"
+              height="1000"
+            />
             <p className="mt-2">WhatsApp</p>
           </Link>
           <Link
@@ -40,9 +45,12 @@ export default function ContactUs() {
             className="w-32 flex flex-col items-center"
             target="_blank"
           >
-            <Image src="/images/telegram.png" alt="telegram icon"
-            width='1000'
-            height='1000' />
+            <Image
+              src="/images/telegram.png"
+              alt="telegram icon"
+              width="1000"
+              height="1000"
+            />
             <p className="mt-2">Telegram</p>
           </Link>
           <Link
@@ -54,8 +62,8 @@ export default function ContactUs() {
               className="scale-90"
               src="/images/instagram.png"
               alt="instagram icon"
-              width='1000'
-              height='1000'
+              width="1000"
+              height="1000"
             />
             <p className="mt-2">Instagram</p>
           </Link>
