@@ -18,7 +18,7 @@ export default function ContactUs() {
           جهت خرید کد محصول را به واتساپ یا تلگرام ارسال کنید و یا تماس بگیرید
         </h2>
         <Link
-          href="tel:+989923847856"
+          href="tel:+989936585546"
           className="flex gap-x-2 items-center bg-black text-textColor font-bold rounded-md px-4 py-2 text-lg w-max mx-auto mt-6 duration-150 hover:bg-blue-600"
           target="_blank"
         >
@@ -26,7 +26,7 @@ export default function ContactUs() {
         </Link>
         <div className="flex gap-x-10 justify-center pt-6 flex-wrap gap-4">
           <Link
-            href={"https://api.whatsapp.com/send?phone=09936585545"}
+            href={"https://api.whatsapp.com/send?phone=+989936585545"}
             className="w-32 flex flex-col items-center"
             target="_blank"
           >
@@ -36,7 +36,7 @@ export default function ContactUs() {
             <p className="mt-2">WhatsApp</p>
           </Link>
           <Link
-            href="https://t.me/mahdiXXX"
+            href="https://t.me/luxypet_ir"
             className="w-32 flex flex-col items-center"
             target="_blank"
           >

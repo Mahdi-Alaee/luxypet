@@ -37,6 +37,8 @@ export default function Newproduct() {
 
   const [breed, setBreed] = useState<InputStateType>(inputStateDefaultValue);
 
+  const [soldOut, setSoldOut] = useState(false)
+
   const [parents, setParents] = useState<Parent[]>([]);
   const [breeds, setBreeds] = useState<Breed[]>([]);
 
@@ -53,7 +55,7 @@ export default function Newproduct() {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch((process?.env?.URL || '')+"/api/product", {
+    const res = await fetch((process?.env?.URL || "") + "/api/product", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -70,10 +72,11 @@ export default function Newproduct() {
         sex: sex.value,
         code: code.value,
         breed: breed.value,
+        soldOut
       }),
     });
     console.log(res);
-    
+
     const data = await res.json();
     console.log(data);
 
@@ -90,7 +93,7 @@ export default function Newproduct() {
 
   const loadProduct = async () => {
     const res = await (
-      await fetch((process?.env?.URL || '')+"/api/product?_id=" + _id)
+      await fetch((process?.env?.URL || "") + "/api/product?_id=" + _id)
     ).json();
     if (res.ok) {
       const product = res.data;
@@ -104,6 +107,9 @@ export default function Newproduct() {
       setFather({ isValid: true, value: product.father });
       setSex({ isValid: true, value: product.sex });
       setBreed({ isValid: true, value: product.breed });
+      console.log(product.soldOut);
+      
+      setSoldOut(!!product.soldOut)
     }
     setProductLoading(false);
   };
@@ -138,6 +144,8 @@ export default function Newproduct() {
         setFather={setFather}
         setSex={setSex}
         setBreed={setBreed}
+        soldOut={soldOut}
+        setSoldOut={setSoldOut}
       />
 
       <ToastContainer position="top-center" bodyClassName="font-sans" />

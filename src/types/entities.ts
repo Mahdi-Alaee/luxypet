@@ -42,5 +42,5 @@ export interface Product {
   code: string;
   breed: string;
   createdAt?:string
-
+  soldOut: boolean
 }

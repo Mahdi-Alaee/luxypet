@@ -12,7 +12,7 @@ const ProductSchema = new Schema(
     sex: { type: String, required: true },
     code: { type: String, required: true, unique: true },
     breed: { type: String, required: true },
-    soldOut: { type: Boolean, required: false, default: false },
+    soldOut: { type: Boolean, required: false, default: false }
   },
   { timestamps: true }
 );

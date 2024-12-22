@@ -30,7 +30,7 @@ interface ProductFromProps {
   setBreeds: Dispatch<SetStateAction<Breed[]>>;
   parents: Parent[];
   setParents: Dispatch<SetStateAction<Parent[]>>;
-  formTitle:string;
+  formTitle: string;
   title: InputStateType;
   setTitle: InputSetStateType;
   image: InputStateType;
@@ -51,6 +51,8 @@ interface ProductFromProps {
   setSex: InputSetStateType;
   breed: InputStateType;
   setBreed: InputSetStateType;
+  soldOut?: boolean;
+  setSoldOut?: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function ProductFrom({
@@ -81,6 +83,8 @@ export default function ProductFrom({
   setSex,
   setTitle,
   setVideo,
+  soldOut,
+  setSoldOut,
 }: ProductFromProps) {
   const [isFormValid, setIsFormValid] = useState(false);
 
@@ -105,12 +109,16 @@ export default function ProductFrom({
   }, []);
 
   const getParents = async () => {
-    const res = await (await fetch((process?.env?.URL || '')+"/api/parent")).json();
+    const res = await (
+      await fetch((process?.env?.URL || "") + "/api/parent")
+    ).json();
     if (res.ok) setParents(res.data);
   };
 
   const getBreeds = async () => {
-    const res = await (await fetch((process?.env?.URL || '')+"/api/breed")).json();
+    const res = await (
+      await fetch((process?.env?.URL || "") + "/api/breed")
+    ).json();
     if (res.ok) setBreeds(res.data);
   };
 
@@ -192,6 +200,18 @@ export default function ProductFrom({
         state={sex}
         setState={setSex}
       />
+      {
+        soldOut && setSoldOut && (
+      <label className="flex items-center gap-x-1 text-white">
+        فروخته شده{" "}
+        <input
+          type="checkbox"
+          checked={soldOut}
+          onChange={(e) => setSoldOut(e.target.checked)}
+        />
+      </label>
+        )
+      }
     </GlobalForm>
   );
 }

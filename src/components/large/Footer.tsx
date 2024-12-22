@@ -26,7 +26,7 @@ export default function Footer() {
             {/* WhatsApp */}
             <Link
               className="group bg-bgColor rounded-full p-3 duration-75 hover:bg-gray-300"
-              href="https://api.whatsapp.com/send?phone=09936585545&text=presa1"
+              href="https://api.whatsapp.com/send?phone=+989936585545&text=سلام"
               target="_blank"
             >
               <FaWhatsapp className="text-3xl text-textColor/80 group-hover:text-blue-700" />
@@ -34,7 +34,7 @@ export default function Footer() {
             {/* Telegram */}
             <Link
               className="group bg-bgColor rounded-full p-3 duration-75 hover:bg-gray-300"
-              href="https://t.me/mahdiXXX"
+              href="https://t.me/luxypet_ir"
               target="_blank"
             >
               <FaTelegramPlane className="text-3xl text-textColor/80 group-hover:text-blue-700" />
@@ -52,7 +52,7 @@ export default function Footer() {
         <div className="mt-8 flex gap-x-8 justify-center flex-wrap">
           <Link
             className="text-textColor/80 flex items-center gap-x-2 duration-75 hover:text-blue-200"
-            href="tel:+989923847856"
+            href="tel:+989936585546"
             target="_blank"
           >
             <BsTelephone className="text-3xl" />
