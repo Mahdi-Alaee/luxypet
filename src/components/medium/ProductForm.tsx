@@ -201,7 +201,7 @@ export default function ProductFrom({
         setState={setSex}
       />
       {
-        soldOut && setSoldOut && (
+        soldOut !== undefined && setSoldOut && (
       <label className="flex items-center gap-x-1 text-white">
         فروخته شده{" "}
         <input
